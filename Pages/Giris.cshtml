@@ -1,0 +1,75 @@
+﻿@page
+@model SanalTarihcim.Pages.GirisModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Arşiv Erişimi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: var(--parchment);">
+
+    <div style="width: 100%; max-width: 450px; background: white; padding: 50px; border-radius: 15px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-top: 5px solid var(--gold);">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <a href="/Index" style="text-decoration: none; color: var(--ink); font-family: 'Cinzel Decorative'; font-size: 1.8rem; display: block; margin-bottom: 10px;">SANAL TARİHÇİM</a>
+            <p style="font-family: 'Playfair Display'; font-style: italic;">Arşiv kapıları sizi bekliyor...</p>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(Model.InfoMessage))
+        {
+            <div style="margin-bottom: 20px; padding: 12px 15px; border-radius: 8px; background: #fff3cd; color: #7a4a00; border: 1px solid #ffe69c; font-size: 0.9rem;">
+                @Model.InfoMessage
+            </div>
+        }
+
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl" />
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: bold;"><i class="fas fa-envelope"></i> E-Posta Adresi</label>
+                <input type="email" name="Email" value="@Model.Email" placeholder="ornek@arsiv.com" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: bold;"><i class="fas fa-key"></i> Şifre</label>
+                <div style="position: relative;">
+                    <input id="loginPassword" type="password" name="Parola" placeholder="Şifreniz" style="width: 100%; padding: 12px 45px 12px 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+                    <button type="button" onclick="togglePassword('loginPassword', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); border: none; background: transparent; color: var(--ink); cursor: pointer; font-size: 1rem;">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="capsule-btn" style="width: 100%; background: var(--ink); color: white; border: none; padding: 15px; font-weight: bold; cursor: pointer;">GİRİŞ YAP</button>
+        </form>
+
+        <div style="margin-top: 30px; text-align: center; font-size: 0.9rem;">
+            <span>Henüz bir kaydınız yok mu?</span><br>
+            <a href="/UyeOl?returnUrl=@Model.ReturnUrl" style="color: var(--gold); font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px;">Yeni Bir Kayıt Oluşturun →</a>
+        </div>
+
+        <div style="margin-top: 22px; padding-top: 18px; border-top: 1px solid #e8e3d8; text-align: center; font-size: 0.9rem;">
+            <span>Yönetici misiniz?</span>
+            <a href="/Admin/Login" style="color: var(--ink); font-weight: bold; text-decoration: underline; display: inline-block; margin-left: 4px;">Admin paneline giriş yapın</a>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword(inputId, button) {
+            const input = document.getElementById(inputId);
+            const icon = button.querySelector('i');
+            const isPassword = input.type === 'password';
+
+            input.type = isPassword ? 'text' : 'password';
+            icon.classList.toggle('fa-eye', !isPassword);
+            icon.classList.toggle('fa-eye-slash', isPassword);
+        }
+    </script>
+
+</body>
+</html>

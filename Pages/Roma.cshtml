@@ -1,0 +1,54 @@
+﻿@page
+@model SanalTarihcim.Pages.RomaModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Roma İmparatorluğu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #800000;"> <header>
+            <a href="/Index" class="logo">SPQR | ROMA</a>
+            <nav><ul><li><a href="/Index">← DÖNÜŞ</a></li></ul></nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #800000;">ROMA İMPARATORLUĞU ARŞİVİ</h2>
+        </section>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; padding: 0 20px;">
+            <div class="content">
+                <p style="font-size: 1.4rem; line-height: 1.8; margin-bottom: 30px; font-family: 'Playfair Display'; text-align: justify;">
+                    Roma Senatosu'ndan Sezar'ın ordularına, Hukuk'un temelinden mimarinin zirvesine kadar Akdeniz'in tek hakimi. "Pax Romana" ile sağlanan barış, Avrupa'nın ve modern dünyanın kültürel temellerini inşa etmiştir.
+                </p>
+
+                <div style="background: #f9f4f4; border-left: 8px solid #800000; padding: 25px; margin-bottom: 25px; box-shadow: 5px 5px 15px rgba(0,0,0,0.05);">
+                    <h3 style="font-family: 'Cinzel'; color: #800000; margin-bottom: 10px;">Senatus Populusque Romanus (SPQR)</h3>
+                    <p style="line-height: 1.6; font-style: italic;">"Roma Senatosu ve Halkı" anlamına gelen bu ifade, Roma'nın meşruiyetini ve cumhuriyet geleneğinin imparatorluk döneminde bile sönmeyen ruhunu temsil eder.</p>
+                </div>
+
+                <div style="background: #fdfdfd; border: 1px solid #ddd; border-top: 5px solid #003366; padding: 25px; margin-bottom: 25px;">
+                    <h3 style="font-family: 'Cinzel'; color: #003366; margin-bottom: 10px;">Roma Hukuku ve Modernite</h3>
+                    <p style="line-height: 1.6;">On İki Levha Kanunları ile başlayan süreç, Justinianus Kanunları ile zirveye ulaşmış ve bugün kullandığımız Kıta Avrupası hukuk sisteminin iskeletini oluşturmuştur.</p>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-frame" style="border: 5px solid #800000; border-radius: 10px; overflow: hidden; box-shadow: 10px 10px 30px rgba(0,0,0,0.2);">
+                    <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=2000" style="width: 100%; height: 500px; object-fit: cover;">
+                </div>
+                <p style="text-align: center; margin-top: 15px; font-family: 'Cinzel'; font-weight: bold; color: #800000;">COLOSSEUM: EBEDİ ŞEHRİN SEMBOLÜ</p>
+            </div>
+        </div>
+
+        <footer style="margin-top: 60px; text-align: center; padding-bottom: 30px; opacity: 0.7;">
+            <p>• MMXXVI • ROMA İMPARATORLUK ARŞİVLERİ • VİSİ ET SCİVİ •</p>
+        </footer>
+    </div>
+</body>
+</html>

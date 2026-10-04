@@ -1,0 +1,46 @@
+﻿@page
+@model SanalTarihcim.Pages.OrtaCagModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Orta Çağ Arşivi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #1a1a1a;">
+        <header>
+            <a href="/Index" class="logo">ORTA ÇAĞ</a>
+            <nav><ul><li><a href="/Index">← DÖNÜŞ</a></li></ul></nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #4a4a4a;">ORTA ÇAĞ: ŞÖVALYELER VE MANASTIRLAR</h2>
+        </section>
+
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; padding: 0 40px;">
+            <div class="book-card">
+                <div class="book-frame" style="background: #2b2b2b;">
+                    <img src="https://images.unsplash.com/photo-1533154683836-84ea7a0bc310?q=80&w=2000" style="width: 100%; height: 700px; object-fit: cover;">
+                </div>
+                <p style="margin-top: 20px; font-style: italic;">"Karanlığın içinde parlayan bir el yazması..."</p>
+            </div>
+
+            <div class="intellectual-text">
+                <h3 style="font-family: 'Cinzel Decorative'; margin-bottom: 25px;">Feodalite ve Haçlı Seferleri</h3>
+                <p style="font-family: 'Playfair Display'; font-size: 1.3rem; line-height: 2.2; text-align: justify; margin-bottom: 30px;">
+                    Orta Çağ, popüler kültürün aksine sadece bir "karanlık dönem" değildir. Roma'nın yıkılışından sonra Avrupa'nın kendi kimliğini aradığı, üniversitelerin temellerinin atıldığı (Bologna, Oxford) ve gotik mimarinin göğe yükseldiği bir zaman dilimidir. Feodalizm, toprağa dayalı bir sadakat sistemi kurarken; Haçlı Seferleri Doğu ile Batı arasında hem kanlı bir çatışmaya hem de muazzam bir kültürel alışverişe zemin hazırlamıştır. Skolastik felsefe, inancı akılla temellendirmeye çalışırken, İslam dünyasından gelen tıp ve matematik bilgileri Avrupa'nın uyanışını tetiklemiştir.
+                </p>
+                <table style="width: 100%; border-left: 10px solid #1a1a1a; padding-left: 20px;">
+                    <tr><td style="padding: 15px; font-weight: 900;">Magna Carta</td><td>1212: Kralın yetkilerinin ilk kez kısıtlanması.</td></tr>
+                    <tr><td style="padding: 15px; font-weight: 900;">Veba Salgını</td><td>Demografik ve ekonomik dengelerin altüst oluşu.</td></tr>
+                    <tr><td style="padding: 15px; font-weight: 900;">Yüzyıl Savaşları</td><td>Milli kimliklerin ve modern orduların doğuşu.</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

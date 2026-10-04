@@ -1,0 +1,51 @@
+﻿@page
+@model SanalTarihcim.Pages.SavasTarihiModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Savaş Tarihi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #4a0404;">
+        <header>
+            <a href="/Index" class="logo" style="color: #4a0404;">STRATEJİ ODASI</a>
+            <nav><ul><li><a href="/Index">← CEPHE HATTI</a></li></ul></nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #4a0404;">DÜNYA TARİHİNİ DEĞİŞTİREN ÇATIŞMALAR</h2>
+        </section>
+
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="background: #fff; padding: 40px; border-radius: 5px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 50px;">
+                <h3 style="font-family: 'Cinzel Decorative'; margin-bottom: 20px;"><i class="fas fa-shield-alt"></i> Askeri Doktrinler ve Değişim</h3>
+                <p style="font-size: 1.1rem; text-align: justify; border-left: 3px solid #4a0404; padding-left: 20px;">
+                    Savaşlar sadece yıkım değil, aynı zamanda teknolojik ve siyasi kırılma noktalarıdır. Truva'dan Waterloo'ya, Çanakkale'den Normandiya'ya kadar her çarpışma, yeni bir dünyanın kapısını aralamıştır. Bu bölümde lojistik, taktik ve kahramanlık hikayelerinin ötesindeki "Stratejik Akıl" incelenmektedir.
+                </p>
+            </div>
+
+            <div class="shelf" style="grid-template-columns: 1fr 1fr 1fr; gap: 30px;">
+                <div style="background: #fdf2f2; padding: 25px; border-radius: 15px; border: 1px solid #4a0404;">
+                    <i class="fas fa-horse-head fa-3x" style="color: #4a0404; margin-bottom: 15px;"></i>
+                    <h4>Antik Savaşlar</h4>
+                    <p style="font-size: 0.85rem; margin-top: 10px;">Phalanx düzeninden Pers ordularına kadar yakın dövüşün ve disiplinin altın çağı.</p>
+                </div>
+                <div style="background: #fdf2f2; padding: 25px; border-radius: 15px; border: 1px solid #4a0404;">
+                    <i class="fas fa-bomb fa-3x" style="color: #4a0404; margin-bottom: 15px;"></i>
+                    <h4>Barutun Keşfi</h4>
+                    <p style="font-size: 0.85rem; margin-top: 10px;">Topların surları yıktığı, şövalyelerin yerini tüfekli piyadelerin aldığı devrim.</p>
+                </div>
+                <div style="background: #fdf2f2; padding: 25px; border-radius: 15px; border: 1px solid #4a0404;">
+                    <i class="fas fa-fighter-jet fa-3x" style="color: #4a0404; margin-bottom: 15px;"></i>
+                    <h4>Modern Harp</h4>
+                    <p style="font-size: 0.85rem; margin-top: 10px;">Tanklar, uçaklar ve siber savaşın belirleyici olduğu 20. ve 21. yüzyıl.</p>
+                </div>
+    </div>
+</body>
+</html>

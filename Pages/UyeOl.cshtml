@@ -1,0 +1,81 @@
+﻿@page
+@model SanalTarihcim.Pages.UyeOlModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Yeni Kayıt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: var(--parchment);">
+
+    <div style="width: 100%; max-width: 500px; background: white; padding: 50px; border-radius: 15px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-left: 5px solid var(--gold);">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="font-family: 'Cinzel Decorative'; font-size: 2rem; margin-bottom: 10px;">CEMİYETE KATILIN</h2>
+            <p style="font-family: 'Playfair Display';">Tarihin akışını takip edenlerin arasına girin.</p>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(Model.InfoMessage))
+        {
+            <div style="margin-bottom: 20px; padding: 12px 15px; border-radius: 8px; background: #fff3cd; color: #7a4a00; border: 1px solid #ffe69c; font-size: 0.9rem;">
+                @Model.InfoMessage
+            </div>
+        }
+
+        <form method="post" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl" />
+
+            <div style="grid-column: span 1;">
+                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem;">Adınız</label>
+                <input type="text" name="Ad" value="@Model.Ad" placeholder="İsim" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+            </div>
+            <div style="grid-column: span 1;">
+                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem;">Soyadınız</label>
+                <input type="text" name="Soyad" value="@Model.Soyad" placeholder="Soyisim" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+            </div>
+            <div style="grid-column: span 2;">
+                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem;">E-Posta Adresiniz</label>
+                <input type="email" name="Eposta" value="@Model.Eposta" placeholder="ornek@arsiv.com" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+            </div>
+            <div style="grid-column: span 2;">
+                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem;">Parolanızı Belirleyin</label>
+                <div style="position: relative;">
+                    <input id="registerPassword" type="password" name="Parola" placeholder="En az 8 karakter" style="width: 100%; padding: 10px 40px 10px 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+                    <button type="button" onclick="togglePassword('registerPassword', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); border: none; background: transparent; color: var(--ink); cursor: pointer;">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div style="grid-column: span 2; display: flex; align-items: center; gap: 10px; font-size: 0.85rem;">
+                <input type="checkbox" id="kvkk" required>
+                <label for="kvkk">Arşiv kurallarını ve kullanım şartlarını kabul ediyorum.</label>
+            </div>
+
+            <button type="submit" class="capsule-btn" style="grid-column: span 2; background: var(--gold); color: var(--ink); border: none; padding: 15px; font-weight: bold; cursor: pointer; margin-top: 10px;">KAYIT OL VE BAŞLA</button>
+        </form>
+
+        <p style="text-align: center; margin-top: 25px; font-size: 0.9rem;">
+            Zaten üyeyim? <a href="/Giris?returnUrl=@Model.ReturnUrl" style="color: var(--ink); font-weight: bold; text-decoration: underline;">Giriş Yap</a>
+        </p>
+    </div>
+
+    <script>
+        function togglePassword(inputId, button) {
+            const input = document.getElementById(inputId);
+            const icon = button.querySelector('i');
+            const isPassword = input.type === 'password';
+
+            input.type = isPassword ? 'text' : 'password';
+            icon.classList.toggle('fa-eye', !isPassword);
+            icon.classList.toggle('fa-eye-slash', isPassword);
+        }
+    </script>
+
+</body>
+</html>

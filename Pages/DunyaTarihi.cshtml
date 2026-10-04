@@ -1,0 +1,51 @@
+﻿@page
+@model SanalTarihcim.Pages.DunyaTarihiModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Dünya Tarihi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <header>
+            <a href="/Index" class="logo">GLOBAL ARŞİVLER</a>
+            <nav><ul><li><a href="/Index">← ANA SAYFA</a></li></ul></nav>
+        </header>
+
+        <section class="section-title">
+            <h2>İNSANLIĞIN ORTAK MİRASI: DÜNYA TARİHİ</h2>
+        </section>
+
+        <div style="padding: 0 40px;">
+            <div style="columns: 2; column-gap: 50px; text-align: justify; font-family: 'Playfair Display'; font-size: 1.2rem;">
+                <p>Dünya tarihi, izole edilmiş olaylar silsilesi değil, kıtalar arası etkileşimlerin bir toplamıdır. İpek Yolu'nun Çin'den Roma'ya taşıdığı sadece ipek değil, fikirler ve inançlardı. Coğrafi keşifler sadece yeni topraklar değil, yeni bir ekonomik düzen getirdi. Bu devasa kütüphanede, insanın biyolojik varlığından dijital çağa kadar olan yolculuğunu, hiçbir coğrafyayı dışarıda bırakmadan inceliyoruz.</p>
+                <p style="margin-top: 20px;">Amerika'nın keşfinden Fransız İhtilali'ne, Sanayi Devrimi'nden uzay çağına kadar her büyük adım, bir önceki adımın omuzlarında yükselir. Biz burada, sadece kralların değil, halkların, sanatçıların ve bilim insanlarının da tarihini tutuyoruz.</p>
+            </div>
+
+            <div class="grid-container" style="margin-top: 50px; grid-template-columns: repeat(4, 1fr);">
+                <div class="book-card">
+                    <div class="book-frame"><img src="https://via.placeholder.com/150x200"></div>
+                    <h4>Keşifler Çağı</h4>
+                </div>
+                <div class="book-card">
+                    <div class="book-frame"><img src="https://via.placeholder.com/150x200"></div>
+                    <h4>Rönesans</h4>
+                </div>
+                <div class="book-card">
+                    <div class="book-frame"><img src="https://via.placeholder.com/150x200"></div>
+                    <h4>Soğuk Savaş</h4>
+                </div>
+                <div class="book-card">
+                    <div class="book-frame"><img src="https://via.placeholder.com/150x200"></div>
+                    <h4>Uzay Çağı</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

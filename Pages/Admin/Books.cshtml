@@ -1,0 +1,134 @@
+@page
+@model SanalTarihcim.Pages.Admin.BooksModel
+@{
+    Layout = null;
+    var editing = Model.Id.HasValue;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sanal Tarihçim | Kitap Yönetimi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { color-scheme: dark; --gold: #d4af37; --bg: #101111; --panel: #191b1a; --line: #343735; --muted: #a8aaa6; }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--bg); color: #f4f1e8; font-family: Georgia, serif; }
+        a { color: inherit; text-decoration: none; }
+        .shell { min-height: 100vh; display: grid; grid-template-columns: 230px minmax(0, 1fr); }
+        aside { padding: 28px 18px; border-right: 1px solid var(--line); background: #141615; }
+        .brand { color: var(--gold); font-size: 1.2rem; line-height: 1.4; margin: 0 0 30px; }
+        nav { display: grid; gap: 8px; }
+        nav a { padding: 11px 12px; color: var(--muted); border-radius: 5px; }
+        nav a.active, nav a:hover { color: #fff; background: #292920; }
+        main { width: min(1180px, 100%); padding: 32px clamp(18px, 4vw, 48px); }
+        .heading { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin-bottom: 24px; }
+        h1 { margin: 0; color: var(--gold); font-size: 1.8rem; }
+        .subtle { color: var(--muted); margin: 7px 0 0; }
+        .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 22px; margin-bottom: 22px; }
+        h2 { margin: 0 0 18px; font-size: 1.15rem; }
+        .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        label { display: grid; gap: 6px; color: #e4dfd1; font-size: .9rem; }
+        input, textarea { width: 100%; border: 1px solid #484b46; border-radius: 4px; padding: 10px 11px; background: #101211; color: #fff; font: inherit; }
+        textarea { min-height: 76px; resize: vertical; }
+        .wide { grid-column: 1 / -1; }
+        .actions { display: flex; gap: 10px; margin-top: 16px; }
+        .button { border: 0; border-radius: 4px; padding: 10px 14px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font: inherit; font-weight: 700; }
+        .primary { color: #15140f; background: var(--gold); }
+        .quiet { color: #eee; background: #343735; }
+        .danger { color: #ffd9d3; background: #612c27; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 620px; }
+        th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+        th { color: var(--gold); font-weight: 600; }
+        .book-cell { display: flex; align-items: center; gap: 12px; }
+        .book-cell img { width: 42px; height: 56px; object-fit: cover; background: #272727; }
+        .book-cell small { display: block; margin-top: 4px; color: var(--muted); }
+        .row-actions { display: flex; gap: 7px; }
+        .message { color: #ffb7aa; margin-bottom: 14px; }
+        @@media (max-width: 760px) { .shell { grid-template-columns: 1fr; } aside { padding: 16px; border-right: 0; border-bottom: 1px solid var(--line); } .brand { margin-bottom: 12px; } nav { display: flex; flex-wrap: wrap; } nav a { padding: 9px; } .fields { grid-template-columns: 1fr; } .wide { grid-column: auto; } .heading { align-items: flex-start; flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <aside>
+            <p class="brand">SANAL TARİHÇİM<br>YÖNETİM</p>
+            <nav>
+                <a href="/Admin"><i class="fa-solid fa-chart-line"></i> Genel Bakış</a>
+                <a class="active" href="/Admin/Books"><i class="fa-solid fa-book"></i> Kitaplar</a>
+                <a href="/Index"><i class="fa-solid fa-arrow-up-right-from-square"></i> Mağazayı Gör</a>
+                <form method="post" asp-page-handler="Logout">
+                    @Html.AntiForgeryToken()
+                    <button class="button quiet" type="submit"><i class="fa-solid fa-right-from-bracket"></i> Çıkış</button>
+                </form>
+            </nav>
+        </aside>
+        <main>
+            <div class="heading">
+                <div>
+                    <h1>Kitap Yönetimi</h1>
+                    <p class="subtle">Kitap ekleyin, bilgilerini düzenleyin veya mağazadan kaldırın.</p>
+                </div>
+                <span class="subtle">@Model.Books.Count kitap</span>
+            </div>
+
+            <section class="panel" id="book-form">
+                <h2>@(editing ? "Kitabı Düzenle" : "Yeni Kitap Ekle")</h2>
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="message">Lütfen zorunlu alanları kontrol edin.</div>
+                }
+                <form method="post" asp-page-handler="Save">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="Id">
+                    <div class="fields">
+                        <label>Kitap adı<input asp-for="Title" placeholder="Örnek: Nutuk"><span asp-validation-for="Title" class="message"></span></label>
+                        <label>Yazar<input asp-for="Author" placeholder="Yazar adı"><span asp-validation-for="Author" class="message"></span></label>
+                        <label class="wide">Açıklama<textarea asp-for="Description" placeholder="Kitabı kısaca tanıtın"></textarea><span asp-validation-for="Description" class="message"></span></label>
+                        <label>Kapak görseli adresi<input asp-for="ImageUrl" placeholder="/nutuk.jfif veya https://..."><span asp-validation-for="ImageUrl" class="message"></span></label>
+                        <label>İnceleme sayfası (isteğe bağlı)<input asp-for="DetailUrl" placeholder="/TurkTarihciler"></label>
+                    </div>
+                    <div class="actions">
+                        <button class="button primary" type="submit"><i class="fa-solid fa-floppy-disk"></i> @(editing ? "Değişiklikleri Kaydet" : "Kitabı Ekle")</button>
+                        @if (editing)
+                        {
+                            <a class="button quiet" href="/Admin/Books">Vazgeç</a>
+                        }
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Mağazadaki Kitaplar</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Kitap</th><th>Açıklama</th><th>İşlemler</th></tr></thead>
+                        <tbody>
+                        @if (Model.Books.Count == 0)
+                        {
+                            <tr><td colspan="3" class="subtle">Henüz kitap eklenmemiş.</td></tr>
+                        }
+                        @foreach (var book in Model.Books)
+                        {
+                            <tr>
+                                <td><div class="book-cell"><img src="@book.ImageUrl" alt=""><span>@book.Title<small>@book.Author</small></span></div></td>
+                                <td>@book.Description</td>
+                                <td><div class="row-actions">
+                                    <a class="button quiet" href="/Admin/Books?editId=@book.Id" title="Düzenle" aria-label="@book.Title kitabını düzenle"><i class="fa-solid fa-pen"></i></a>
+                                    <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Bu kitap mağazadan kaldırılsın mı?')">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="id" value="@book.Id">
+                                        <button class="button danger" type="submit" title="Kaldır" aria-label="@book.Title kitabını kaldır"><i class="fa-solid fa-trash"></i></button>
+                                    </form>
+                                </div></td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

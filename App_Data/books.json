@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "c932e9ab-80e4-46ed-9bed-5f8df5bc8ef6",
+    "Title": "Osmanl\u0131 Tarihine Ku\u015Fbak\u0131\u015F\u0131",
+    "Author": "Halil \u0130nalc\u0131k",
+    "Description": "\u0130mparatorlu\u011Fun y\u00FCkseli\u015F ve \u00E7\u00F6k\u00FC\u015F dinamiklerini anlatan bir ba\u015Fyap\u0131t.",
+    "ImageUrl": "/osmkitap.jfif",
+    "DetailUrl": "/Osmanli"
+  },
+  {
+    "Id": "a93a447a-657d-45fd-a833-c20821b2868d",
+    "Title": "Roma \u0130mparatorlu\u011Fu Tarihi",
+    "Author": "Edward Gibbon",
+    "Description": "Antik d\u00FCnyan\u0131n en b\u00FCy\u00FCk g\u00FCc\u00FCn\u00FCn y\u00FCkseli\u015Fini ve miras\u0131n\u0131 ke\u015Ffedin.",
+    "ImageUrl": "/romakitap.jfif",
+    "DetailUrl": "/Roma"
+  },
+  {
+    "Id": "16879a95-ee47-46c9-a500-d91e1bd0ed37",
+    "Title": "Sava\u015F Ve Bar\u0131\u015F",
+    "Author": "Lev Tolstoy",
+    "Description": "Napolyon sava\u015Flar\u0131n\u0131n g\u00F6lgesinde Rus toplumunun ruhunu yans\u0131tan tarih panoramas\u0131.",
+    "ImageUrl": "/savaskitap.jfif",
+    "DetailUrl": "/SavasTarihi"
+  },
+  {
+    "Id": "e5d81e89-0b5a-41c8-9cea-071f9dda5395",
+    "Title": "Sapiens",
+    "Author": "Yuval Noah Harari",
+    "Description": "\u0130nsano\u011Flunun avc\u0131-toplay\u0131c\u0131l\u0131ktan g\u00FCn\u00FCm\u00FCze uzanan yolculu\u011Fu.",
+    "ImageUrl": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80\u0026w=1000",
+    "DetailUrl": "/ModernTarih"
+  },
+  {
+    "Id": "d32022ce-a536-4b5a-a11c-026507e66c35",
+    "Title": "T\u00FCfek, Mikrop ve \u00C7elik",
+    "Author": "Jared Diamond",
+    "Description": "Co\u011Frafyan\u0131n ve ekolojinin toplumlar\u0131n kaderi \u00FCzerindeki etkisi.",
+    "ImageUrl": "/tufek.jfif",
+    "DetailUrl": "/DunyaTarihi"
+  },
+  {
+    "Id": "1c854dbf-b945-46f5-8ef7-fa3b0d2a5f4e",
+    "Title": "Mukaddime",
+    "Author": "\u0130bn-i Haldun",
+    "Description": "Devletlerin do\u011Fu\u015Funu, y\u00FCkseli\u015Fini ve \u00E7\u00F6k\u00FC\u015F\u00FCn\u00FC anlatan tarih felsefesi eseri.",
+    "ImageUrl": "/mukaddime.jfif",
+    "DetailUrl": "/IslamTarihi"
+  },
+  {
+    "Id": "59717fe3-a9f1-4033-85ba-4623400fb53f",
+    "Title": "Sefiller",
+    "Author": "Victor Hugo",
+    "Description": "Frans\u0131z Devrimi y\u0131llar\u0131nda adalet ve vicdan aray\u0131\u015F\u0131n\u0131n hikayesi.",
+    "ImageUrl": "/sefiller.jfif",
+    "DetailUrl": "/AvrupaTarihi"
+  },
+  {
+    "Id": "ffa7a6c4-5844-47f2-a5e2-d98d65863aa6",
+    "Title": "Nutuk",
+    "Author": "Mustafa Kemal Atat\u00FCrk",
+    "Description": "Milli M\u00FCcadele\u0027nin safhalar\u0131n\u0131 liderinin anlat\u0131m\u0131yla aktaran ar\u015Fiv belgesi.",
+    "ImageUrl": "/nutuk.jfif",
+    "DetailUrl": "/TurkTarihciler"
+  }
+]

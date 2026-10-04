@@ -1,0 +1,62 @@
+﻿@page
+@model SanalTarihcim.Pages.AmerikanTarihcilerModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Amerikan Tarih Ekolü</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #bf0a30;"> <header>
+            <a href="/Index" class="logo" style="color: #002868;">AMERİKAN TARİHÇİLERİ</a>
+            <nav><ul><li><a href="/Index">← ANA SAYFA</a></li></ul></nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #002868;">AMERİKAN TARİHÇİLİĞİ: İSTİSNACILIK VE KONSENSÜS</h2>
+        </section>
+
+        <div style="padding: 0 50px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-bottom: 60px; align-items: center;">
+                <p style="font-family: 'Playfair Display'; font-size: 1.4rem; line-height: 2; text-align: justify;">
+                    Amerikan tarih yazımı, "Yeni Dünya"nın Avrupalı kökenlerinden kopuşunu ve kendine özgü bir kimlik inşasını merkeze alır. Bu gelenek, "Amerikan İstisnacılığı" (American Exceptionalism) fikriyle, ABD'nin demokrasi ve bireycilik konularında öncü olduğunu savunur. Ancak bu konsensüs, İç Savaş ve ırksal krizlerle sorgulanarak "Revizyonist Tarihçilik" ekolünü doğurmuştur.
+                </p>
+                <div class="book-card">
+                    <div class="book-frame" style="border: 5px solid #002868; border-radius: 15px; overflow: hidden;">
+                        <img src="america.jfif" style="width: 100%; height: 400px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px;">
+                
+                <div style="background: white; padding: 40px; border-left: 10px solid #bf0a30; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 0 15px 15px 0;">
+                    <img src="george.jfif" style="width: 200px; height: 280px; object-fit: cover; margin-bottom: 20px; border-radius: 5px; box-shadow: 5px 5px 15px rgba(0,0,0,0.1);">
+                    <h2 style="font-family: 'Cinzel Decorative'; margin-bottom: 15px; color: #002868;">George Bancroft</h2>
+                    <div style="font-family: 'Playfair Display'; line-height: 1.8; text-align: justify;">
+                        <p>Amerikan tarihçiliğinin "babası" kabul edilir. ABD tarihini ilahi bir planın gerçekleşmesi olarak gören Bancroft, Amerikan Devrimi'ni özgürlüğün mutlak zaferi olarak betimler. Onun 10 ciltlik dev eseri, Amerikan ulusal kimliğinin ve "Vadedilmiş Topraklar" inancının tarihsel temelini atmıştır.</p>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 40px; border-left: 10px solid #002868; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 0 15px 15px 0;">
+                    <img src="jackson.jfif" style="width: 200px; height: 280px; object-fit: cover; margin-bottom: 20px; border-radius: 5px; box-shadow: 5px 5px 15px rgba(0,0,0,0.1);">
+                    <h2 style="font-family: 'Cinzel Decorative'; margin-bottom: 15px; color: #002868;">F. Jackson Turner</h2>
+                    <div style="font-family: 'Playfair Display'; line-height: 1.8; text-align: justify;">
+                        <p>Meşhur <strong>"Frontier Thesis"</strong> (Sınır Tezi) ile Amerikan karakterini açıklayan en etkili tarihçidir. Turner'a göre Amerikan demokrasisi Avrupa'dan taşınmamış, vahşi batıya doğru genişleyen "sınır" hattındaki zorlu yaşamla şekillenmiştir. Bu süreçteki bireycilik ve dayanıklılık, ABD'nin özgün kimliğini oluşturmuştur.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer style="margin-top: 50px; text-align: center; padding-bottom: 40px; opacity: 0.7;">
+            <p>• MMXXVI • UNITED STATES HISTORICAL ARCHIVES •</p>
+        </footer>
+    </div>
+</body>
+</html>

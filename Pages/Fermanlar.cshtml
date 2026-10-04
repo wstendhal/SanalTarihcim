@@ -1,0 +1,81 @@
+﻿@page
+@model SanalTarihcim.Pages.FermanlarModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Osmanlı Fermanları Arşivi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #8b0000;"> <header>
+            <a href="/Index" class="logo">HATT-I HÜMAYUN</a>
+            <nav>
+                <ul>
+                    <li><a href="/Index">← GERİ DÖN</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #8b0000; font-family: 'Cinzel Decorative';">OSMANLI FERMANLARI VE TUĞRALAR</h2>
+        </section>
+
+        <div style="display: flex; gap: 50px; padding: 0 40px; margin-bottom: 80px; align-items: center;">
+            <div style="flex: 1;">
+                <p style="font-family: 'Playfair Display'; font-size: 1.4rem; line-height: 2; text-align: justify;">
+                    Osmanlı diplomatikasının en zarif ve en güçlü belgeleri olan fermanlar, padişahın mutlak iradesini temsil ederdi. En üstte yer alan ve hükümdarın imzası sayılan <strong>Tuğra</strong>, hattatların elinde sanata dönüşürken; altındaki divani hatla yazılmış metinler, imparatorluğun adaletini ve yönetim gücünü yansıtırdı. Bu sayfa, yüzyıllar boyu dünyayı titreten o mührün ve emrin hikayesini sunar.
+                </p>
+                
+            </div>
+            <div style="flex: 1;">
+                <div class="book-frame" style="border: 5px solid #8b0000; border-radius: 15px; overflow: hidden; background: #fdf5e6;">
+                    <img src="ferman.jfif" style="width: 100%; height: 500px; object-fit: contain; padding: 20px;">
+                </div>
+            </div>
+        </div>
+        
+        <div class="shelf" style="grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            
+            <div class="book-card" style="background: #fffcf5; border: 1px solid #ddd;">
+                <div class="book-frame" style="height: 450px; background: white;">
+                    <img src="bosna.jfif" alt="Fatih Fermanı" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #8b0000;">Bosna Ruhanilerine Amanname</h3>
+                <div style="padding: 10px 20px; text-align: justify; line-height: 1.6; font-size: 0.95rem;">
+                    <p>Fatih Sultan Mehmed'in 1463'te Bosna'yı fethinden sonra Fransisken rahiplerine verdiği, inanç özgürlüğünü garanti altına alan efsanevi belgedir. İnsan hakları tarihinin en eski vesikalarından biri kabul edilir.</p>
+                </div>
+            </div>
+
+            <div class="book-card" style="background: #fffcf5; border: 1px solid #ddd;">
+                <div class="book-frame" style="height: 450px; background: white;">
+                    <img src="tugra.jfif" alt="Kanuni Tuğrası" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #8b0000;">Muhteşem Süleyman'ın Tuğrası</h3>
+                <div style="padding: 10px 20px; text-align: justify; line-height: 1.6; font-size: 0.95rem;">
+                    <p>Kanuni Sultan Süleyman dönemine ait fermanların başında yer alan bu altın süslemeli tuğra, imparatorluğun zirve noktasındaki estetik anlayışı ve gücü simgeler. Dünyanın en ünlü kaligrafi örneklerinden biridir.</p>
+                </div>
+            </div>
+
+            <div class="book-card" style="background: #fffcf5; border: 1px solid #ddd;">
+                <div class="book-frame" style="height: 450px; background: white;">
+                    <img src="berat.jfif" alt="II. Abdülhamid Tuğrası" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #8b0000;">II. Abdülhamid Beratı</h3>
+                <div style="padding: 10px 20px; text-align: justify; line-height: 1.6; font-size: 0.95rem;">
+                    <p>Geç dönem Osmanlı diplomasisinin en ince detaylarını barındıran bu mühür, devletin modernleşme çabalarıyla klasik sanatın birleşimini yansıtır. Bürokrasinin en yoğun olduğu dönemin resmi imzasıdır.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer style="margin-top: 100px;">
+            <p>• MMXXVI • DEVLET-İ ALİYYE-İ OSMANİYE ARŞİVLERİ •</p>
+        </footer>
+    </div>
+</body>
+</html>

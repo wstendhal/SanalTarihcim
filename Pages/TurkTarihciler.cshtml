@@ -1,0 +1,82 @@
+﻿@page
+@model SanalTarihcim.Pages.TurkTarihcilerModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Türk Tarihçiler</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #e30a17;"> <header>
+            <a href="/Index" class="logo">BİLGELER ARŞİVİ</a>
+            <nav>
+                <ul>
+                    <li><a href="/Index">← GERİ</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #e30a17;">TÜRK TARİHÇİLİĞİNİN ÖNCÜLERİ</h2>
+        </section>
+
+        <div style="display: flex; gap: 50px; padding: 0 40px; margin-bottom: 80px; align-items: center;">
+            <div style="flex: 1;">
+                <p style="font-family: 'Playfair Display'; font-size: 1.4rem; line-height: 2; text-align: justify;">
+                    Türk tarih yazıcılığı, Orta Asya bozkırlarından Avrupa içlerine uzanan binlerce yıllık devlet geleneğinin ve kültür mirasının hafızasıdır. Bu arşiv, Osmanlı vakanüvis geleneğini modern akademik metodolojiyle birleştiren ve Türk tarihini dünya tarihinin ana eksenine yerleştiren ustaların mirasını sunar.
+                </p>
+                <div class="capsule-btn" style="margin-top: 30px; background: rgba(227,10,23,0.1); width: fit-content;">
+                </div>
+            </div>
+            <div style="flex: 1;">
+                <div class="book-frame" style="border: 5px solid #e30a17; overflow: hidden; border-radius: 15px;">
+                    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2000" style="width: 100%; height: 450px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+
+        <div class="shelf" style="grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            
+            <div class="book-card">
+                <div class="book-frame">
+                    <img src="halilinalcik.jfif" style="width: 220px; height: 320px; object-fit: cover; border-radius: 5px 15px 15px 5px;">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #e30a17;">Halil İnalcık</h3>
+                <div style="padding: 10px 20px; text-align: justify; line-height: 1.6; font-size: 0.95rem;">
+                    <p>Dünya tarih otoriteleri tarafından <strong>"Tarihçilerin Kutbu"</strong> olarak anılır. Osmanlı İmparatorluğu'nun sosyal ve ekonomik yapısını arşiv belgelerine dayanarak dünya tarih yazımıyla bütünleştirmiştir. Eserleri, Harvard'dan Cambridge'e kadar tüm prestijli üniversitelerde temel kaynak kabul edilir. O, tarihi sadece kronolojik bir anlatı değil, hukuk ve tarım sistemine dayalı bilimsel bir analiz olarak inşa etmiştir.</p>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-frame">
+                    <img src="ilberr.jfif" style="width: 220px; height: 320px; object-fit: cover; border-radius: 5px 15px 15px 5px;">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #e30a17;">İlber Ortaylı</h3>
+                <div style="padding: 10px 20px; text-align: justify; line-height: 1.6; font-size: 0.95rem;">
+                    <p>Özellikle <strong>"Osmanlı'nın En Uzun Yüzyılı"</strong> üzerine yaptığı çalışmalarla tanınan Ortaylı, mukayeseli tarihçiliğin yaşayan efsanesidir. Çok dilli birikimiyle Rusya, Avusturya ve Balkan arşivlerini tarayarak Türk tarihini küresel bir perspektifle anlatır. Topkapı Sarayı Müzesi Başkanlığı da yapmış olan usta, imparatorluk mirasını ve şehir kültürünü kitlelere sevdiren akıcı üslubuyla tanınır.</p>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-frame">
+                    <img src="fuatkop.jfif" style="width: 220px; height: 320px; object-fit: cover; border-radius: 5px 15px 15px 5px;">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #e30a17;">Fuat Köprülü</h3>
+                <div style="padding: 10px 20px; text-align: justify; line-height: 1.6; font-size: 0.95rem;">
+                    <p>Modern Türk tarihçiliğinin ve edebiyat tarihinin kurucu babasıdır. <strong>"Osmanlı İmparatorluğu'nun Kuruluşu"</strong> teziyle dünya çapında yankı uyandırmış, tarihin sadece siyasetten değil, edebiyat ve sosyal kurumlardan oluştuğunu kanıtlamıştır. Türk sufizminin kökenlerinden edebiyatımızın gelişimine kadar, milli kimliğin tarihsel temellerini bilimsel metodolojiyle ilk kez o inşa etmiştir.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer style="margin-top: 80px;">
+            <p>• MMXXVI • TÜRK TARİHİNİN KADİM VE EBEDİ HAFIZASI •</p>
+        </footer>
+    </div>
+</body>
+</html>

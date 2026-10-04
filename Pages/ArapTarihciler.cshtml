@@ -1,0 +1,68 @@
+﻿@page
+@model SanalTarihcim.Pages.ArapTarihcilerModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Arap Tarih Yazımı Arşivi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #006233;"> <header>
+            <a href="/Index" class="logo">KÜTÜB-Ü TARİH</a>
+            <nav>
+                <ul>
+                    <li><a href="/Index">← DÖNÜŞ</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #006233;">ŞARKIN KALEMLERİ: ARAP TARİHÇİLER</h2>
+        </section>
+
+        <div style="display: flex; gap: 50px; padding: 0 40px; margin-bottom: 80px;">
+            <div style="flex: 1;">
+                <p style="font-family: 'Playfair Display'; font-size: 1.4rem; line-height: 2; text-align: justify;">
+                    Arap tarih yazıcılığı, sadece olayların kaydı değil; aynı zamanda medeniyetlerin yükseliş ve çöküş yasalarının keşfidir. İslam'ın altın çağında yetişen bu tarihçiler, hem dini bilimlerde hem de sosyolojide devrim yapmışlardır. Olayları rivayetlerle aktaran geleneksel metodun ötesine geçerek, tarihin bir bilim olarak temellerini atmışlardır.
+                </p>
+            </div>
+            <div style="flex: 1;">
+                <div class="book-frame" style="border: 5px solid #006233;">
+                    <img src="https://images.unsplash.com/photo-1551133988-ad26c02243e2?q=80&w=2000" style="width: 100%; height: 550px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+        
+        <div class="shelf" style="grid-template-columns: repeat(2, 1fr); max-width: 1200px;"> <div class="book-card">
+                <div class="book-frame">
+                    <img src="haldun.jfif" alt="İbn-i Haldun">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #006233;">İbn-i Haldun</h3>
+                <div style="padding: 10px 30px; text-align: justify; line-height: 1.8; font-family: 'Playfair Display';">
+                    <p>Modern sosyolojinin, demografinin ve tarih felsefesinin babası kabul edilir. En ünlü eseri olan <strong>Mukaddime</strong>, tarihin sadece bir anlatı değil, toplumların yapısını inceleyen bir bilim olması gerektiğini savunur. "Coğrafya kaderdir" anlayışının temellerini atan usta, devletlerin beş aşamalı ömürlerini ve "asabiyet" kavramıyla toplumsal dayanışmanın tarihsel rolünü analiz etmiştir.</p>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-frame">
+                    <img src="cafer.jfif" alt="Taberî">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #006233;">Ebu Cafer et-Taberî</h3>
+                <div style="padding: 10px 30px; text-align: justify; line-height: 1.8; font-family: 'Playfair Display';">
+                    <p>İslam dünyasının "Tarihçilerin Reisi" olarak bilinir. Dev eseri <strong>Tarihu'r-Rusul ve'l-Muluk</strong> (Peygamberler ve Hükümdarlar Tarihi), yaratılıştan kendi dönemine kadar olan süreci kapsayan devasa bir evrensel tarih çalışmasıdır. Rivayetleri büyük bir titizlikle tasnif ederek, kendisinden sonra gelen tüm Müslüman tarihçilere bir metodoloji mirası bırakmıştır.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer style="margin-top: 100px;">
+            <p>• MMXXVI • ŞARKIN HİKMETİ VE TARİH ARŞİVLERİ •</p>
+        </footer>
+    </div>
+</body>
+</html>

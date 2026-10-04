@@ -1,0 +1,61 @@
+﻿@page
+@model SanalTarihcim.Pages.IslamTarihiModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | İslam Tarihi Arşivi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #006400;"> <header>
+            <a href="/Index" class="logo">DARÜ'L HİKMET</a>
+            <nav><ul><li><a href="/Index">← ANA SAYFA</a></li></ul></nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #006400;">İSLAM TARİHİ VE MEDENİYETİ</h2>
+        </section>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; padding: 0 20px;">
+            <div class="content">
+                <p style="font-size: 1.4rem; line-height: 1.8; margin-bottom: 30px; font-family: 'Playfair Display'; text-align: justify;">
+                    7. yüzyılda Hicaz topraklarında doğan İslam medeniyeti, kısa sürede Atlas Okyanusu'ndan Çin seddine kadar uzanan devasa bir coğrafyaya barış, adalet ve bilgi taşımıştır. Bu tarih, sadece fetihlerin değil; felsefe, matematik ve astronomideki devrimlerin de hikayesidir.
+                </p>
+
+                <div style="background: #f0f7f0; border-left: 8px solid #006400; padding: 25px; margin-bottom: 25px; box-shadow: 5px 5px 15px rgba(0,0,0,0.05);">
+                    <h3 style="font-family: 'Cinzel'; color: #006400; margin-bottom: 10px;">İslam'ın Altın Çağı ve Bilim</h3>
+                    <p style="line-height: 1.6; font-style: italic;">Bağdat'taki Beytü'l-Hikme (Bilgelik Evi) ile başlayan süreçte, Antik Yunan eserleri Arapçaya çevrilmiş; İbn-i Sina, El-Harezmi ve Biruni gibi dehalar modern bilimin temellerini atmıştır.</p>
+                </div>
+
+                <div style="background: #fffdf5; border: 1px solid #e2d1a3; border-top: 5px solid #c5a059; padding: 25px; margin-bottom: 25px;">
+                    <h3 style="font-family: 'Cinzel'; color: #8b6d11; margin-bottom: 10px;">Endülüs: Avrupa'da Bir Işık</h3>
+                    <p style="line-height: 1.6;">İber Yarımadası'nda kurulan Endülüs medeniyeti, kütüphaneleri ve mimarisiyle karanlık Avrupa'ya meşale olmuştur. Kurtuba ve Elhamra, estetiğin ve hoşgörünün zirvesidir.</p>
+                </div>
+
+                <div class="grid-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="capsule-btn" style="background: #006400; color: white;"><i class="fas fa-moon"></i> Dört Halife</div>
+                    <div class="capsule-btn" style="border: 1px solid #006400; color: #006400;"><i class="fas fa-mosque"></i> Emevi & Abbasi</div>
+                    <div class="capsule-btn" style="background: #006400; color: white;"><i class="fas fa-book-open"></i> Beytü'l Hikme</div>
+                    <div class="capsule-btn" style="border: 1px solid #006400; color: #006400;"><i class="fas fa-university"></i> Medreseler</div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-frame" style="border: 5px solid #006400; border-radius: 10px; overflow: hidden; box-shadow: 10px 10px 30px rgba(0,0,0,0.2);">
+                    <img src="islam.jfif" style="width: 100%; height: 500px; object-fit: cover;">
+                </div>
+                <p style="text-align: center; margin-top: 15px; font-family: 'Cinzel'; font-weight: bold; color: #006400;">HİKMETİN VE ESTETİĞİN BULUŞMASI</p>
+            </div>
+        </div>
+
+        <footer style="margin-top: 60px; text-align: center; padding-bottom: 30px; opacity: 0.7;">
+            <p>• MMXXVI • İSLAM TARİHİ VE KÜLTÜR ARŞİVLERİ • HAYRUL UMURİ EVSATUHA •</p>
+        </footer>
+    </div>
+</body>
+</html>

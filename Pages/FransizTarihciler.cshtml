@@ -1,0 +1,81 @@
+﻿@page
+@model SanalTarihcim.Pages.FransizTarihcilerModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Fransız Entelektüel Arşivi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #ed2939;">
+        <header>
+            <a href="/Index" class="logo">FRANSIZ TARİHÇİLERİ</a>
+            <nav>
+                <ul>
+                    <li><a href="/Index">← DÖNÜŞ</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #002395;">FRANSIZ EKOLÜ: ANNALES VE ÖTESİ</h2>
+        </section>
+
+        <div style="display: flex; gap: 50px; padding: 0 40px; margin-bottom: 80px;">
+            <div style="flex: 1;">
+                <p style="font-family: 'Playfair Display'; font-size: 1.4rem; line-height: 2; text-align: justify;">
+                    Fransız tarihçiliği, 1929'da Marc Bloch ve Lucien Febvre tarafından kurulan **Annales Ekolü** ile dünya tarih yazımını kökten değiştirmiştir. Onlar için tarih, sadece kralların savaşları değil; iklimin, coğrafyanın ve en önemlisi "zihniyetlerin" (mentalités) tarihidir.Fransa tarihi, Roma İmparatorluğu'nun Galya'yı fethi ile başlayıp, 843 Verdun Antlaşması ile temelleri atılan krallık döneminden, 1789 Fransız Devrimi ile modern cumhuriyete dönüşen köklü bir süreçtir. Yüzyıl Savaşları, monarşi, imparatorluklar ve sömürgecilikle şekillenen ülke, bugün AB'nin kurucusu, nükleer güç ve kültürel bir merkezdir. 
+                </p>
+            </div>
+            <div style="flex: 1;">
+                <div class="book-frame" style="border: 5px solid #002395;">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2000" style="width: 100%; height: 550px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+        
+        <div class="shelf">
+            <div class="book-card">
+                <div class="book-frame">
+                    <img src="fernand.jfif" alt="Fernand Braudel">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #002395;">Fernand Braudel</h3>
+                <p style="padding: 10px 20px; font-style: italic; line-height: 1.6;">"Maddi medeniyet ve kapitalizmin gelişimini küresel ölçekte analiz ederek 'uzun süre' kavramını tarihe kazandıran dev isim."</p>
+            </div>
+
+            <div class="book-card">
+                <div class="book-frame">
+                    <img src="marcblo.jfif" alt="Marc Bloch">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #002395;">Marc Bloch</h3>
+                <p style="padding: 10px 20px; font-style: italic; line-height: 1.6;">"Feodal toplumu bir bütün olarak inceleyen, tarih metodolojisini baştan yazan efsanevi kahraman."</p>
+            </div>
+
+            <div class="book-card">
+                <div class="book-frame">
+                    <img src="michel.jfif" alt="Michel Foucault">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #002395;">Michel Foucault</h3>
+                <p style="padding: 10px 20px; font-style: italic; line-height: 1.6;">"İktidarın, bilginin ve kurumların arkeolojisini yaparak tarihe felsefi bir derinlik katan yapısalcı usta."</p>
+            </div>
+
+            <div class="book-card">
+                <div class="book-frame">
+                    <img src="jacques.jfif" alt="Jacques Le Goff">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel'; color: #002395;">Jacques Le Goff</h3>
+                <p style="padding: 10px 20px; font-style: italic; line-height: 1.6;">"Orta Çağ insanının hayal dünyasını, rüyalarını ve zaman algısını keşfeden zihniyet tarihçisi."</p>
+            </div>
+        </div>
+
+        <footer style="margin-top: 100px;">
+            <p>• MMXXVI • SANAL TARİHÇİM İMPARATORLUK ARŞİVLERİ •</p>
+        </footer>
+    </div>
+</body>
+</html>

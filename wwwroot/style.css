@@ -1,0 +1,271 @@
+/* ============================================================
+   SANAL TARİHÇİM - BÜYÜK LİG "ULTRA-WIDE" ENGINE 2026
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@300;500;700;900&display=swap');
+
+:root {
+    --bg-dark: #121212;
+    --parchment: #f4e4bc;
+    --ink: #1a150f;
+    --gold: #b8860b;
+    --gold-glow: rgba(184, 134, 11, 0.4);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-dark); /* Arka plan hala koyu ama wrapper her yeri kaplayacak */
+    font-family: 'Montserrat', sans-serif;
+    color: var(--ink);
+    overflow-x: hidden;
+}
+
+/* --- FULL WIDTH WRAPPER (YANLARDAKİ BOŞLUĞU BİTİREN KISIM) --- */
+.main-wrapper {
+    background: var(--parchment) url('https://www.transparenttextures.com/patterns/parchment.png');
+    width: 100vw; /* Sayfayı tam genişlik yapar */
+    min-height: 100vh;
+    padding: 40px 100px; /* İçeriden geniş boşluk bırakır ama zemin tam ekrandır */
+    box-shadow: inset 0 0 200px rgba(0,0,0,0.15);
+    position: relative;
+    border-top: 5px solid var(--gold);
+    animation: pageFadeIn 1.5s ease;
+}
+
+@keyframes pageFadeIn {
+    0% { opacity: 0; filter: blur(5px); }
+    100% { opacity: 1; filter: blur(0); }
+}
+
+/* --- HEADER (GENİŞLETİLMİŞ) --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px; /* İçerik çok dağılmasın diye limitli ama geniş */
+    margin: 0 auto 60px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.4);
+}
+
+nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+nav a { text-decoration: none; color: var(--ink); font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+
+.btn-sepet {
+    background: #6d4c41;
+    color: white !important;
+    padding: 12px 25px;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- DEV BÖLÜM BAŞLIKLARI --- */
+.section-title {
+    text-align: center;
+    margin: 60px auto 40px;
+    max-width: 1600px;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    background: #fff;
+    display: inline-block;
+    padding: 15px 80px;
+    border-radius: 100px;
+    font-size: 1.8rem;
+    box-shadow: 0 15px 40px var(--gold-glow);
+    border: 1px solid rgba(184, 134, 11, 0.1);
+}
+
+/* --- YAZARLAR VE DOSYA GRİDİ (TAM KAPASİTE) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1700px;
+    margin: 0 auto 80px;
+}
+
+.capsule-btn {
+    background: rgba(255,255,255,0.4);
+    padding: 25px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 1.1rem;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    transition: var(--transition);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
+}
+
+.capsule-btn i {
+    background: var(--ink);
+    color: var(--parchment);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.capsule-btn:hover {
+    background: var(--ink);
+    color: #fff;
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.capsule-btn:hover i { background: var(--gold); }
+
+/* --- KATEGORİLER (İKONLU) --- */
+.category-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.cat-item {
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.cat-item i { font-size: 2.5rem; color: #5d4037; }
+.cat-item:hover { transform: translateY(-10px); color: var(--gold); }
+
+/* --- KİTAP RAFI (BÜYÜK BOY) --- */
+.shelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    max-width: 1600px;
+    margin: 60px auto;
+}
+
+.book-card {
+    text-align: center;
+}
+
+.book-frame {
+    position: relative;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+/* Arkadaki o karakteristik blok */
+.book-frame::after {
+    content: "";
+    position: absolute;
+    bottom: -20px; left: 5%;
+    width: 90%; height: 60%;
+    background: #8d6e63;
+    z-index: -1;
+    border-radius: 20px;
+    opacity: 0.4;
+}
+
+.book-card img {
+    width: 220px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 5px 15px 15px 5px;
+    box-shadow: 15px 25px 50px rgba(0,0,0,0.4);
+}
+
+.book-card:hover .book-frame {
+    transform: perspective(1000px) rotateY(-20deg) scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 100px 0 40px;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    letter-spacing: 5px;
+    opacity: 0.7;
+}
+/* ============================================================
+   MAP BANNER MOTORU - BÜYÜK LİG ÖZEL (SADECE EKLEME)
+   ============================================================ */
+
+.map-banner {
+    width: 100vw;               /* Tam ekran genişlik */
+    height: 60vh;              /* Ekran yüksekliğinin %60'ı kadar heybetli */
+    position: relative;        /* Yazıları üzerine koymak için */
+    overflow: hidden;         /* Taşan kısımları keser, sünmeyi engeller */
+    border-bottom: 5px solid var(--gold); /* Altına bir altın varak mühür */
+    margin-top: -40px;         /* Wrapper'ın padding'ini sıfırlar (DİKKAT: .main-wrapper padding'ine göre ayarla) */
+    margin-left: -100px;        /* Wrapper'ın yan padding'ini sıfırlar (DİKKAT: .main-wrapper padding'ine göre ayarla) */
+    animation: bannerFadeIn 2s ease;
+}
+
+.map-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* İŞTE SİHİR BU: Resmi bozmadan alanı tam doldurur. */
+    object-position: center 30%; /* Resmi hafif yukarı kaydırarak önemli yerleri odaklar */
+    filter: brightness(0.6) sepia(0.3); /* Haritayı biraz karartıp sitenin antik havasına uydurur */
+}
+
+/* Haritanın üzerindeki yazılar ve karartma efekti */
+.map-overlay {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(26,21,15,0.9), transparent); /* Alttan üste doğru kararan gradyan */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Yazıları en alta yaslar */
+    padding: 100px;
+    color: var(--parchment);
+    pointer-events: none;      /* Yazıların altındaki haritaya tıklanabilsin */
+}
+
+.map-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.5);
+}
+
+.map-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+@keyframes bannerFadeIn {
+    0% { opacity: 0; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}

@@ -1,0 +1,48 @@
+@page
+@model SanalTarihcim.Pages.Admin.LoginModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Admin Girişi</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #0f0f0f; color: white;">
+    <div style="width: 100%; max-width: 420px; background: #1a1a1a; border: 1px solid #d4af37; border-radius: 20px; padding: 40px 30px; box-shadow: 0 20px 50px rgba(0,0,0,.35);">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h2 style="font-family: 'Cinzel Decorative'; color: #d4af37; margin: 0;">ADMIN PANEL</h2>
+            <p style="color: #bbb; margin-top: 10px;">Sistem erişimi için giriş yapın</p>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+        {
+            <div style="margin-bottom: 20px; padding: 12px 14px; border-radius: 8px; background: rgba(255, 0, 0, 0.08); color: #ffb0b0; border: 1px solid rgba(255,0,0,0.2); font-size: 0.9rem;">
+                @Model.ErrorMessage
+            </div>
+        }
+
+        <form method="post">
+            @Html.AntiForgeryToken()
+
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; margin-bottom: 8px; color: #d4af37; font-weight: bold;">E-Posta</label>
+                <input type="email" name="Email" value="@Model.Email" placeholder="admin@example.com" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #444; background: #111; color: white; box-sizing: border-box;" required>
+            </div>
+
+            <div style="margin-bottom: 22px;">
+                <label style="display: block; margin-bottom: 8px; color: #d4af37; font-weight: bold;">Şifre</label>
+                <input type="password" name="Password" placeholder="********" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #444; background: #111; color: white; box-sizing: border-box;" required>
+            </div>
+
+            <button type="submit" style="width: 100%; background: #d4af37; color: #111; border: none; padding: 14px; border-radius: 10px; font-weight: bold; cursor: pointer;">
+                GİRİŞ YAP
+            </button>
+        </form>
+
+    </div>
+</body>
+</html>

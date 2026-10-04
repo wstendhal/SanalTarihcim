@@ -1,0 +1,179 @@
+﻿@page
+@model SanalTarihcim.Pages.SepetimModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Koleksiyon Sepetim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Mevcut stillerini korudum */
+        .sepet-item {
+            display: flex;
+            align-items: center;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            gap: 25px;
+            transition: 0.3s;
+            margin-bottom: 15px; /* EKLEME: Kartlar arası nefes payı */
+        }
+        .sepet-item:hover {
+            border-color: var(--gold, #d4af37);
+            transform: translateY(-2px); /* EKLEME: Hafif yukarı kayma efekti */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .sepet-item img {
+            width: 100px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid var(--gold, #d4af37);
+        }
+        .item-details {
+            flex-grow: 1;
+        }
+        .item-details h4 {
+            color: var(--gold, #d4af37);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-family: 'Cinzel';
+        }
+        .item-details p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+        .delete-btn {
+            background: transparent;
+            color: #800000;
+            border: 1px solid #800000;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .delete-btn:hover {
+            background: #800000;
+            color: white;
+        }
+
+        /* EKLEME: Onay butonu için özel altın parlama efekti */
+        .onay-btn {
+            background: #d4af37 !important; 
+            color: #111 !important; 
+            border: none; 
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .onay-btn:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: var(--gold, #d4af37);">
+        <header>
+            <a href="/Index" class="logo">KOLEKSİYON SEPETİM</a>
+            <nav><ul><li><a href="/Index">← ARAŞTIRMAYA DEVAM ET</a></li></ul></nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="font-family: 'Cinzel Decorative';">SEPETİNİZDEKİ TARİHİ HAZİNELER</h2>
+            <p>Seçtiğiniz belgeleri buradan yönetebilir, toplu olarak inceleyebilirsiniz.</p>
+        </section>
+
+        <div id="sepet-icerik" style="padding: 0 50px; min-height: 400px;">
+            <div id="bos-sepet-mesaji" style="text-align: center; padding: 100px; border: 2px dashed var(--gold, #d4af37); opacity: 0.6; border-radius: 15px;">
+                <i class="fas fa-shopping-basket fa-4x" style="color: var(--gold, #d4af37);"></i>
+                <p style="margin-top: 20px; font-size: 1.5rem; font-family: 'Playfair Display';">Sepetiniz şu an boş.</p>
+                <a href="/Index" class="capsule-btn" style="display: inline-flex; margin-top: 20px;">ARŞİVE GİT</a>
+            </div>
+
+            <div id="sepet-listesi" style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+                </div>
+        </div>
+
+        <div style="margin-top: 80px; padding: 40px; border-top: 2px solid var(--gold, #d4af37); display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-family: 'Cinzel'; font-size: 1.2rem;">
+                Toplam Belge Sayısı: <span id="toplam-adet" style="color: var(--gold, #d4af37); font-weight: bold;">0</span>
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <button class="capsule-btn" onclick="sepetiBosalt()" style="background: #800000; color: white; border: none;">
+                    <i class="fas fa-trash-alt"></i> SEPETİ TEMİZLE
+                </button>
+                
+                <button class="capsule-btn onay-btn" onclick="sepetiOnayla()">
+                    <i class="fas fa-check"></i> SEPETİ ONAYLA
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // EKLEME: Sepeti Onayla fonksiyonu
+        function sepetiOnayla() {
+            const sepet = JSON.parse(localStorage.getItem('tarihSepeti')) || [];
+            if(sepet.length === 0) {
+                alert("Önce arşive gidip birkaç hazine seçmelisin babuş!");
+                return;
+            }
+            // Sayfayı yönlendir
+            window.location.href = '/SepetOnay';
+        }
+
+        function sepetiBosalt() {
+            if(confirm("Sepetinizdeki tüm tarihi belgeler silinecek. Emin misiniz babuş?")) {
+                localStorage.removeItem('tarihSepeti');
+                renderSepet();
+            }
+        }
+
+        function urunSil(index) {
+            let sepet = JSON.parse(localStorage.getItem('tarihSepeti')) || [];
+            sepet.splice(index, 1);
+            localStorage.setItem('tarihSepeti', JSON.stringify(sepet));
+            renderSepet();
+        }
+
+        function renderSepet() {
+            const sepet = JSON.parse(localStorage.getItem('tarihSepeti')) || [];
+            const liste = document.getElementById('sepet-listesi');
+            const bosMesaj = document.getElementById('bos-sepet-mesaji');
+            const adetSpan = document.getElementById('toplam-adet');
+
+            adetSpan.innerText = sepet.length;
+
+            if(sepet.length === 0) {
+                liste.style.display = 'none';
+                bosMesaj.style.display = 'block';
+            } else {
+                liste.style.display = 'grid';
+                bosMesaj.style.display = 'none';
+                
+                liste.innerHTML = sepet.map((item, index) => `
+                    <div class="sepet-item">
+                        <img src="${item.resim}" alt="${item.ad}">
+                        <div class="item-details">
+                            <h4>${item.ad}</h4>
+                            <p><i class="fas fa-landmark"></i> Sanal Tarihçim Arşivi</p>
+                            <p><i class="fas fa-shield-alt"></i> Orijinal Dijital Kopya</p>
+                        </div>
+                        <button class="delete-btn" onclick="urunSil(${index})">
+                            <i class="fas fa-times"></i> Kaldır
+                        </button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        window.onload = renderSepet;
+    </script>
+</body>
+</html>

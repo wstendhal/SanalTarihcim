@@ -1,0 +1,30 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanalTarihcim", "SanalTarihcim.csproj", "{FB94C867-F6B9-6B20-D43F-E10DA7282BBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanalTarihcim.Tests", "SanalTarihcim.Tests\SanalTarihcim.Tests.csproj", "{922789FB-583D-42CA-BA6E-3B96767AB0E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB94C867-F6B9-6B20-D43F-E10DA7282BBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB94C867-F6B9-6B20-D43F-E10DA7282BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB94C867-F6B9-6B20-D43F-E10DA7282BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB94C867-F6B9-6B20-D43F-E10DA7282BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{922789FB-583D-42CA-BA6E-3B96767AB0E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{922789FB-583D-42CA-BA6E-3B96767AB0E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{922789FB-583D-42CA-BA6E-3B96767AB0E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{922789FB-583D-42CA-BA6E-3B96767AB0E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E72A9A68-6B9D-4A53-8076-DFF84DE0C4C0}
+	EndGlobalSection
+EndGlobal

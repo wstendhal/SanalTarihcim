@@ -1,0 +1,55 @@
+﻿@page
+@model SanalTarihcim.Pages.OsmanliModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanal Tarihçim | Osmanlı Arşivi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #800000;">
+        <header>
+            <a href="/Index" class="logo">SANAL TARİHÇİM</a>
+            <nav><ul><li><a href="/Index">← ANA SAYFAYA DÖN</a></li></ul></nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #800000;">DEVLET-İ ALİYYE-İ OSMANİYYE</h2>
+        </section>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto;">
+            <div class="book-card">
+                <div class="book-frame" style="background: #800000;">
+                    <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?q=80&w=2000" style="width: 100%; border-radius: 10px;">
+                </div>
+                <h3 style="margin-top:20px; font-family: 'Cinzel Decorative';">Cihan İmparatorluğu Arşivi</h3>
+            </div>
+            
+            <div class="info-pane">
+                <p style="font-family: 'Playfair Display'; font-size: 1.6rem; margin-bottom: 30px;">
+                    Söğüt'ten Viyana kapılarına uzanan, üç kıtada adaletle hüküm süren bir medeniyetin dijital kütüphanesi.
+                </p>
+                <table style="width: 100%; text-align: left; border-spacing: 0 15px;">
+                    <tr style="background: #800000; color: white;">
+                        <th style="padding: 15px;">Dönem</th>
+                        <th style="padding: 15px;">Başlık</th>
+                    </tr>
+                    <tr><td>Kuruluş</td><td>1299 - Osman Gazi</td></tr>
+                    <tr><td>Yükseliş</td><td>1453 - Fatih Sultan Mehmet</td></tr>
+                    <tr><td>Zirve</td><td>1520 - Kanuni Sultan Süleyman</td></tr>
+                </table>
+                
+                <a href="/Fermanlar" class="capsule-btn" style="margin-top: 30px; background: #800000; color: white;">
+                    <i class="fas fa-scroll"></i> FERMANLARI İNCELE
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

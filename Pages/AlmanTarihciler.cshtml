@@ -1,0 +1,71 @@
+﻿@page
+@model SanalTarihcim.Pages.AlmanTarihcilerModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Alman Tarihçiler</title>
+    <link rel="stylesheet" href="~/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #333;">
+        <header>
+            <a href="/Index" class="logo">ALMAN TARİHÇİLER</a>
+            <nav>
+                <ul>
+                    <li><a href="/Index">← DÖNÜŞ</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="section-title">
+            <h2>ALMAN TARİH EKOLÜ VE METODOLOJİSİ</h2>
+        </section>
+
+        <div style="display: flex; gap: 50px; padding: 0 40px; margin-bottom: 80px; align-items: center;">
+            <div style="flex: 1;">
+                <p style="font-family: 'Playfair Display'; font-size: 1.4rem; line-height: 2; text-align: justify;">
+                    Alman tarih yazıcılığı, 19. yüzyılda modern tarihçiliğin kalbi haline gelmiştir. "Historizm" (Tarihselcilik) akımıyla her olayı kendi dönemi içinde değerlendirmeyi öğreten Alman ekolü, arşiv belgelerini tarihin namusu kabul etmiştir. Kutsal Roma Germen İmparatorluğu'ndan modern Almanya'ya uzanan bu yolculukta, Alman düşünürler tarihi sadece bir hikâye değil; bir felsefe, bir ekonomi ve bir bilim olarak inşa etmişlerdir.
+                </p>
+            </div>
+            <div style="flex: 1;">
+                <div class="book-frame" style="border: 5px solid #333; overflow: hidden; border-radius: 15px;">
+                    <img src="~/almantarih.jfif" style="width: 100%; height: 450px; object-fit: cover; filter: grayscale(0.5);">
+                </div>
+            </div>
+        </div>
+
+        <div class="shelf" style="grid-template-columns: 1fr 1fr; gap: 40px;">
+            
+            <div style="background: #fff; padding: 30px; border-top: 10px solid #333; display: flex; gap: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 0 0 15px 15px;">
+                <img src="~/leopold.jfif" style="width: 220px; height: 320px; object-fit: cover; border-radius: 5px; box-shadow: 5px 5px 15px rgba(0,0,0,0.2);">
+                <div>
+                    <h3 style="font-family: 'Cinzel'; color: #333; margin-bottom: 15px; font-size: 1.6rem;">Leopold von Ranke</h3>
+                    <div style="font-family: 'Playfair Display'; font-size: 1rem; line-height: 1.8; text-align: justify;">
+                        <p>Modern "Bilimsel Tarihçiliğin" kurucusu kabul edilir. Ranke, tarihin sadece bir edebiyat dalı olmadığını, titiz bir arşiv çalışması ve birincil kaynak analizi gerektiren bir bilim olduğunu savunmuştur. Onun <strong>"Olayları tam olarak nasıl olduysa öyle anlatmak"</strong> (Wie es eigentlich gewesen) ilkesi, tarafsız tarihçiliğin kutsal kuralı haline gelmiştir. Uluslararası diplomasiyi tarihin merkezine koyarak, devletler arasındaki güç dengelerini ustalıkla analiz etmiştir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #fff; padding: 30px; border-top: 10px solid #c00; display: flex; gap: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 0 0 15px 15px;">
+                <img src="~/karlma.jfif" style="width: 220px; height: 320px; object-fit: cover; border-radius: 5px; box-shadow: 5px 5px 15px rgba(0,0,0,0.2);">
+                <div>
+                    <h3 style="font-family: 'Cinzel'; color: #c00; margin-bottom: 15px; font-size: 1.6rem;">Karl Marx</h3>
+                    <div style="font-family: 'Playfair Display'; font-size: 1rem; line-height: 1.8; text-align: justify;">
+                        <p>Tarih yazımına <strong>"Tarihsel Materyalizm"</strong> kavramını getirerek bir devrim yapmıştır. Marx'a göre tarih, sadece fikirlerin değil, üretim biçimlerinin ve sınıfsal çatışmaların bir sonucudur. İnsanlık tarihini ekonomik altyapı üzerinden okumuş; toplumların gelişimini kölelikten feodalizme, feodalizmden kapitalizme giden bir süreç olarak analiz etmiştir. Onun metodolojisi, sosyal tarih ve ekonomi tarihinin dünyada birincil öneme sahip olmasını sağlamıştır.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer style="margin-top: 100px;">
+            <p>• MMXXVI • CİRMEN EKOLÜ VE MODERN TARİHİN DOĞUŞU •</p>
+        </footer>
+    </div>
+</body>
+</html>

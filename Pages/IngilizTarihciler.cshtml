@@ -1,0 +1,62 @@
+﻿@page
+@model SanalTarihcim.Pages.IngilizTarihcilerModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | İngiliz Tarih Ekolü</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #00247d;">
+        <header>
+            <a href="/Index" class="logo">BRITISH ARŞİV</a>
+            <nav><ul><li><a href="/Index">← ANA SAYFA</a></li></ul></nav>
+        </header>
+
+        <section class="section-title">
+            <h2 style="color: #00247d;">BRİTANYA TARİHÇİLİĞİ: BELGE VE ANALİZ</h2>
+        </section>
+
+        <div style="padding: 0 50px;">
+            <p style="font-family: 'Playfair Display'; font-size: 1.5rem; line-height: 2.2; text-align: justify; margin-bottom: 40px;">
+                İngiliz tarih yazımı, "Whig Tarihçiliği"nden Marksist sosyal tarihçiliğe kadar uzanan, dünyanın en köklü akademik geleneklerinden biridir. Ada olmanın verdiği izole ama küresel bakış açısı, İngiliz tarihçilerini sadece kendi krallıklarını değil, tüm dünyayı (Britanya İmparatorluğu üzerinden) bir laboratuvar gibi incelemeye itmiştir. Bu arşiv, Edward Gibbon'ın Roma analizlerinden, Arnold Toynbee'nin medeniyetler kuramına kadar uzanan devasa bir entelektüel mirası barındırır.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                
+                <div style="background: white; padding: 40px; border-left: 10px solid #00247d; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-radius: 0 15px 15px 0;">
+                    <img src="edward.jfif" alt="Edward Gibbon" style="width: 220px; height: 320px; object-fit: cover; margin-bottom: 20px; border-radius: 5px;">
+                    <h2 style="font-family: 'Cinzel'; color: #00247d; margin-bottom: 15px;">Edward Gibbon</h2>
+                    <div style="font-family: 'Playfair Display'; line-height: 1.8; text-align: justify;">
+                        <p>Aydınlanma çağının en büyük tarihçisi kabul edilir. Altı ciltlik dev eseri <strong>"Roma İmparatorluğu'nun Gerileyiş ve Çöküş Tarihi"</strong>, modern tarihçiliğin metodolojik temellerini atmıştır. Gibbon, Roma'nın çöküşünü sadece askeri yenilgilerle değil; toplumsal ahlakın değişimi, dini dönüşümler ve bürokratik hantallık üzerinden laik bir gözle incelemiştir. İronik ve keskin üslubuyla, tarihin sadece bir kronoloji değil, bir ibretler tablosu olduğunu savunmuştur.</p>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 40px; border-left: 10px solid #cf142b; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-radius: 0 15px 15px 0;">
+                    <img src="arnold.jfif" alt="Arnold Toynbee" style="width: 220px; height: 320px; object-fit: cover; margin-bottom: 20px; border-radius: 5px;">
+                    <h2 style="font-family: 'Cinzel'; color: #cf142b; margin-bottom: 15px;">Arnold J. Toynbee</h2>
+                    <div style="font-family: 'Playfair Display'; line-height: 1.8; text-align: justify;">
+                        <p>20. yüzyılın en büyük medeniyet kuramcısıdır. Devasa çalışması <em>"A Study of History"</em> (Tarih Süreci) ile medeniyetlerin doğuşu, yükselişi ve çöküşünü <strong>"Meydan Okuma ve Yanıt"</strong> (Challenge and Response) teorisiyle açıklamıştır. Toynbee'ye göre toplumlar, karşılaştıkları zorluklara (doğa, savaş, göç) verdikleri yaratıcı yanıtlarla yükselir; bu yaratıcılığı kaybettiklerinde ise çökerler. Küresel bir bakış açısına sahip olan usta, Batı dışı medeniyetlere de büyük önem vermiştir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-card" style="margin-top: 50px;">
+                <div class="book-frame" style="background: #00247d; border-radius: 15px; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?q=80&w=2000" style="width: 100%; height: 400px; object-fit: cover; filter: brightness(0.7);">
+                </div>
+                <p style="text-align: center; margin-top: 15px; font-style: italic; font-family: 'Cinzel'; font-size: 1.1rem; color: #00247d;">"Westminster Arşivlerinden Süzülen Bilgelik"</p>
+            </div>
+        </div>
+
+        <footer style="margin-top: 80px; text-align: center; padding-bottom: 40px; opacity: 0.6;">
+            <p>• MMXXVI • BRITISH IMPERIAL HISTORICAL SOCIETY •</p>
+        </footer>
+    </div>
+</body>
+</html>

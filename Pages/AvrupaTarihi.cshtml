@@ -1,0 +1,62 @@
+﻿@page
+@model SanalTarihcim.Pages.AvrupaTarihiModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanal Tarihçim | Avrupa Arşivleri</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper" style="border-top-color: #3e2723;">
+        <header>
+            <a href="/Index" class="logo">AVRUPA ARŞİVİ</a>
+            <nav><ul><li><a href="/Index">← ANA SAYFA</a></li></ul></nav>
+        </header>
+
+        <div class="map-banner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg" alt="Rönesans'ın Uyanışı - Atina Okulu">
+            <div class="map-overlay">
+                <h1 class="map-title">RÖNESANS'IN UYANIŞI</h1>
+                <p class="map-subtitle">Karanlıktan aydınlığa; bireyin ve aklın yeniden keşfi.</p>
+            </div>
+        </div>
+
+        <section class="section-title">
+            <h2>AVRUPA: KARANLIKTAN AYDINLIĞA BİR DÖNÜŞÜM</h2>
+        </section>
+
+        <div style="padding: 0 50px;">
+            <div style="background: rgba(255,255,255,0.6); padding: 50px; border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+                <h3 style="font-family: 'Cinzel Decorative'; margin-bottom: 30px; font-size: 2rem;">Rönesans ve Hümanizmin İnşası</h3>
+                <p style="font-family: 'Playfair Display'; font-size: 1.4rem; line-height: 2.2; text-align: justify; margin-bottom: 30px;">
+                    Avrupa tarihi, sadece kralların ve savaşların değil, aynı zamanda zihinsel bir devrimin öyküsüdür. Orta Çağ'ın teokratik baskısından kurtulan Avrupa zihni, 14. yüzyıl İtalya'sında "Rönesans" ile antik Yunan ve Roma değerlerini yeniden keşfetti. Bu sadece sanatın değil, **bireyin** keşfidir. Petrarch'ın şiirlerinden Leonardo'nun anatomi defterlerine kadar her şey, insanın evrendeki merkeziliğini haykırıyordu. Bu entelektüel uyanış, Reform hareketleriyle kilisenin otoritesini sarstı ve nihayetinde Aydınlanma ile aklı, dogmanın üzerine yerleştirdi.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; margin-top: 50px;">
+                    <div style="border-top: 4px solid var(--gold); padding: 20px;">
+                        <h4>Bilimsel Devrim</h4>
+                        <p style="font-size: 0.9rem;">Copernicus'un gökyüzünü, Newton'un ise yeryüzünün yasalarını değiştirdiği o muazzam çağ.</p>
+                    </div>
+                    <div style="border-top: 4px solid var(--gold); padding: 20px;">
+                        <h4>Fransız İhtilali</h4>
+                        <p style="font-size: 0.9rem;">1789: Eşitlik, Özgürlük ve Kardeşlik ilkelerinin mutlak monarşileri yerle bir ettiği an.</p>
+                    </div>
+                    <div style="border-top: 4px solid var(--gold); padding: 20px;">
+                        <h4>Sanayi Devrimi</h4>
+                        <p style="font-size: 0.9rem;">Kas gücünden buhara geçiş; kentleşmenin ve modern dünya sorunlarının başlangıcı.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="capsule-btn" style="margin-top: 50px; width: 100%; justify-content: center;">
+                <i class="fas fa-palette"></i> RÖNESANS SANAT GALERİSİNİ AÇ
+            </a>
+        </div>
+    </div>
+</body>
+</html>
