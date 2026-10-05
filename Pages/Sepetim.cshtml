@@ -105,11 +105,11 @@
                 Toplam Belge Sayısı: <span id="toplam-adet" style="color: var(--gold, #d4af37); font-weight: bold;">0</span>
             </div>
             <div style="display: flex; gap: 20px;">
-                <button class="capsule-btn" onclick="sepetiBosalt()" style="background: #800000; color: white; border: none;">
+                <button class="capsule-btn" data-action="empty-cart" style="background: #800000; color: white; border: none;">
                     <i class="fas fa-trash-alt"></i> SEPETİ TEMİZLE
                 </button>
                 
-                <button class="capsule-btn onay-btn" onclick="sepetiOnayla()">
+                <button class="capsule-btn onay-btn" data-action="checkout">
                     <i class="fas fa-check"></i> SEPETİ ONAYLA
                 </button>
             </div>
@@ -117,14 +117,12 @@
     </div>
 
     <script>
-        // EKLEME: Sepeti Onayla fonksiyonu
         function sepetiOnayla() {
-            const sepet = JSON.parse(localStorage.getItem('tarihSepeti')) || [];
+            const sepet = sepetiOku();
             if(sepet.length === 0) {
-                alert("Önce arşive gidip birkaç hazine seçmelisin babuş!");
+                alert("Sepetiniz boş. Önce arşivden bir eser seçin.");
                 return;
             }
-            // Sayfayı yönlendir
             window.location.href = '/SepetOnay';
         }
 
@@ -136,44 +134,101 @@
         }
 
         function urunSil(index) {
-            let sepet = JSON.parse(localStorage.getItem('tarihSepeti')) || [];
+            const sepet = sepetiOku();
             sepet.splice(index, 1);
             localStorage.setItem('tarihSepeti', JSON.stringify(sepet));
             renderSepet();
         }
 
+        function sepetiOku() {
+            const serialized = localStorage.getItem('tarihSepeti');
+            if (!serialized) return [];
+
+            try {
+                const sepet = JSON.parse(serialized);
+                if (!Array.isArray(sepet) || sepet.some(item =>
+                    !item || typeof item.ad !== 'string' || typeof item.resim !== 'string')) {
+                    throw new TypeError('Sepet biçimi geçersiz.');
+                }
+
+                return sepet;
+            } catch (error) {
+                console.error('Sepet verisi okunamadı.', error);
+                alert('Sepet verisi bozulmuş. Güvenlik için sepet içeriği gösterilemiyor.');
+                return [];
+            }
+        }
+
+        function metinliSatir(ikonSinifi, metin) {
+            const satir = document.createElement('p');
+            const ikon = document.createElement('i');
+            ikon.className = ikonSinifi;
+            satir.append(ikon, ` ${metin}`);
+            return satir;
+        }
+
         function renderSepet() {
-            const sepet = JSON.parse(localStorage.getItem('tarihSepeti')) || [];
+            const sepet = sepetiOku();
             const liste = document.getElementById('sepet-listesi');
             const bosMesaj = document.getElementById('bos-sepet-mesaji');
             const adetSpan = document.getElementById('toplam-adet');
 
-            adetSpan.innerText = sepet.length;
+            adetSpan.textContent = sepet.length;
+            liste.replaceChildren();
 
-            if(sepet.length === 0) {
+            if (sepet.length === 0) {
                 liste.style.display = 'none';
                 bosMesaj.style.display = 'block';
             } else {
                 liste.style.display = 'grid';
                 bosMesaj.style.display = 'none';
-                
-                liste.innerHTML = sepet.map((item, index) => `
-                    <div class="sepet-item">
-                        <img src="${item.resim}" alt="${item.ad}">
-                        <div class="item-details">
-                            <h4>${item.ad}</h4>
-                            <p><i class="fas fa-landmark"></i> Sanal Tarihçim Arşivi</p>
-                            <p><i class="fas fa-shield-alt"></i> Orijinal Dijital Kopya</p>
-                        </div>
-                        <button class="delete-btn" onclick="urunSil(${index})">
-                            <i class="fas fa-times"></i> Kaldır
-                        </button>
-                    </div>
-                `).join('');
+
+                sepet.forEach((item, index) => {
+                    const kart = document.createElement('div');
+                    kart.className = 'sepet-item';
+
+                    const image = document.createElement('img');
+                    image.src = item.resim;
+                    image.alt = item.ad;
+
+                    const details = document.createElement('div');
+                    details.className = 'item-details';
+
+                    const title = document.createElement('h4');
+                    title.textContent = item.ad;
+                    details.append(
+                        title,
+                        metinliSatir('fas fa-landmark', 'Sanal Tarihçim Arşivi'),
+                        metinliSatir('fas fa-shield-alt', 'Orijinal Dijital Kopya'));
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.className = 'delete-btn';
+                    deleteButton.dataset.action = 'remove-item';
+                    deleteButton.dataset.index = index;
+                    deleteButton.append(
+                        Object.assign(document.createElement('i'), { className: 'fas fa-times' }),
+                        ' Kaldır');
+
+                    kart.append(image, details, deleteButton);
+                    liste.append(kart);
+                });
             }
         }
 
-        window.onload = renderSepet;
+        document.addEventListener('click', event => {
+            const button = event.target.closest('[data-action]');
+            if (!button) return;
+
+            if (button.dataset.action === 'empty-cart') {
+                sepetiBosalt();
+            } else if (button.dataset.action === 'checkout') {
+                sepetiOnayla();
+            } else if (button.dataset.action === 'remove-item') {
+                urunSil(Number(button.dataset.index));
+            }
+        });
+
+        renderSepet();
     </script>
 </body>
 </html>

@@ -26,29 +26,6 @@
             border-radius: 15px;
             padding: 30px;
         }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            color: #d4af37;
-            margin-bottom: 8px;
-            font-family: 'Cinzel';
-            font-size: 0.9rem;
-        }
-        .form-group input {
-            width: 100%;
-            background: #2a2a2a;
-            border: 1px solid #444;
-            padding: 12px;
-            color: white;
-            border-radius: 8px;
-            outline: none;
-            transition: 0.3s;
-        }
-        .form-group input:focus {
-            border-color: #d4af37;
-        }
         .order-summary {
             background: #111;
             border: 1px solid #d4af37;
@@ -64,29 +41,13 @@
             border-bottom: 1px solid #222;
             padding-bottom: 10px;
         }
-        .pay-btn {
-            width: 100%;
-            background: #d4af37;
-            color: black;
-            border: none;
-            padding: 15px;
-            font-weight: bold;
-            font-family: 'Cinzel Decorative';
-            cursor: pointer;
+        .payment-notice {
+            padding: 18px;
+            border: 1px solid #8b6c23;
             border-radius: 8px;
-            font-size: 1.1rem;
-            transition: 0.3s;
-        }
-        .pay-btn:hover {
-            filter: brightness(1.2);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-        .card-icons {
-            display: flex;
-            gap: 15px;
-            font-size: 1.5rem;
-            color: #555;
-            margin-bottom: 20px;
+            background: #252116;
+            color: #e7d8aa;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -105,92 +66,79 @@
 
         <div class="payment-container">
             <div class="payment-card">
-                <h3 style="color: #fff; margin-bottom: 25px; font-family: 'Cinzel';"><i class="fas fa-credit-card"></i> KART BİLGİLERİ</h3>
-                
-                <div class="card-icons">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-amex"></i>
-                </div>
-
-                <form id="payment-form" onsubmit="odemeYap(event)">
-                    <div class="form-group">
-                        <label>Kart Üzerindeki İsim</label>
-                        <input type="text" placeholder="AD SOYAD" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Kart Numarası</label>
-                        <input type="text" maxlength="19" placeholder="0000 0000 0000 0000" required>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label>Son Kullanma</label>
-                            <input type="text" placeholder="AA/YY" required>
-                        </div>
-                        <div class="form-group">
-                            <label>CVC (Güvenlik Kodu)</label>
-                            <input type="password" maxlength="3" placeholder="***" required>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 20px; color: #777; font-size: 0.8rem;">
-                        <i class="fas fa-lock"></i> 256-bit SSL Güvenlik Sertifikası ile korunmaktadır.
-                    </div>
-                </form>
+                <h3 style="color: #fff; margin-bottom: 25px; font-family: 'Cinzel';">ÖDEME DURUMU</h3>
+                <p class="payment-notice">
+                    Bu sitede henüz gerçek ödeme altyapısı bulunmuyor. Kart bilgisi girmeyin;
+                    şu anda ödeme alınmıyor ve sipariş oluşturulmuyor.
+                </p>
             </div>
 
             <div class="order-summary">
                 <h3 style="color: #d4af37; margin-bottom: 20px; font-family: 'Cinzel';">SİPARİŞ ÖZETİ</h3>
-                <div id="ozet-liste" style="max-height: 200px; overflow-y: auto; margin-bottom: 20px;">
-                    </div>
+                <div id="ozet-liste" style="max-height: 200px; overflow-y: auto; margin-bottom: 20px;"></div>
                 
                 <div class="summary-item">
                     <span>Toplam Belge:</span>
                     <span id="toplam-adet" style="color: #fff;">0</span>
                 </div>
                 <div class="summary-item" style="border-top: 1px solid #d4af37; padding-top: 15px; margin-top: 10px;">
-                    <span style="font-weight: bold; color: #d4af37;">TOPLAM:</span>
-                    <span style="font-weight: bold; color: #fff;">BAĞIŞ BAZLI</span>
+                    <span style="font-weight: bold; color: #d4af37;">Ödeme:</span>
+                    <span style="font-weight: bold; color: #fff;">Kullanılamıyor</span>
                 </div>
-                
-                <button type="submit" form="payment-form" class="pay-btn">
-                    <i class="fas fa-shield-alt"></i> ÖDEMEYİ TAMAMLA
-                </button>
             </div>
         </div>
     </div>
 
     <script>
+        function readCart() {
+            const serialized = localStorage.getItem('tarihSepeti');
+            if (!serialized) return [];
+
+            try {
+                const cart = JSON.parse(serialized);
+                if (!Array.isArray(cart) || cart.some(item =>
+                    !item || typeof item.ad !== 'string' || typeof item.resim !== 'string')) {
+                    throw new TypeError('Sepet biçimi geçersiz.');
+                }
+
+                return cart;
+            } catch (error) {
+                console.error('Sepet verisi okunamadı.', error);
+                alert('Sepet verisi bozulmuş. Sipariş özeti gösterilemiyor.');
+                return [];
+            }
+        }
+
         function renderOzet() {
-            const sepet = JSON.parse(localStorage.getItem('tarihSepeti')) || [];
+            const sepet = readCart();
             const ozetListe = document.getElementById('ozet-liste');
             const adetSpan = document.getElementById('toplam-adet');
 
-            adetSpan.innerText = sepet.length;
+            adetSpan.textContent = sepet.length;
+            ozetListe.replaceChildren();
 
-            if(sepet.length === 0) {
-                window.location.href = '/Index'; // Sepet boşsa ana sayfaya at
+            if (sepet.length === 0) {
+                window.location.href = '/Sepetim';
                 return;
             }
 
-            ozetListe.innerHTML = sepet.map(item => `
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.85rem; color: #ccc;">
-                    <img src="${item.resim}" style="width: 30px; height: 40px; border-radius: 3px;">
-                    <span>${item.ad}</span>
-                </div>
-            `).join('');
+            sepet.forEach(item => {
+                const row = document.createElement('div');
+                row.style.cssText = 'display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.85rem; color: #ccc;';
+
+                const image = document.createElement('img');
+                image.src = item.resim;
+                image.alt = '';
+                image.style.cssText = 'width: 30px; height: 40px; border-radius: 3px;';
+
+                const title = document.createElement('span');
+                title.textContent = item.ad;
+                row.append(image, title);
+                ozetListe.append(row);
+            });
         }
 
-        function odemeYap(e) {
-            e.preventDefault();
-            alert("İşlem başarıyla gerçekleştirildi. Arşiv belgeleriniz e-posta adresinize mühürlenip gönderilmiştir!");
-            localStorage.removeItem('tarihSepeti'); // Ödeme bitince sepeti temizle
-            window.location.href = '/Index'; // Ana sayfaya dön
-        }
-
-        window.onload = renderOzet;
+        renderOzet();
     </script>
 </body>
 </html>

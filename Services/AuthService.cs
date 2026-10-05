@@ -26,6 +26,7 @@ public sealed class AuthService(
 {
     private static readonly TimeSpan VerificationCodeLifetime = TimeSpan.FromMinutes(10);
     private const int MaximumVerificationAttempts = 5;
+    private const int MinimumPasswordLength = 8;
 
     private readonly PasswordHasher<AuthUser> _passwordHasher = new();
     private readonly SemaphoreSlim _registrationLock = new(1, 1);
@@ -45,6 +46,11 @@ public sealed class AuthService(
             string.IsNullOrWhiteSpace(trimmedPassword))
         {
             return new AuthResult(false, "Tüm alanlar zorunludur.");
+        }
+
+        if (trimmedPassword.Length < MinimumPasswordLength)
+        {
+            return new AuthResult(false, "Şifre en az 8 karakter olmalıdır.");
         }
 
         try

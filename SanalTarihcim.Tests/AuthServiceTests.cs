@@ -66,6 +66,21 @@ public sealed class AuthServiceTests : IDisposable
     }
 
     [Fact]
+    public async Task RegisterAsync_RejectsPasswordsShorterThanEightCharacters()
+    {
+        var emailSender = new FakeEmailSender();
+        var authService = CreateAuthService(
+            emailSender,
+            new LoginHistoryService(_testDirectory),
+            new AuthUserStore(_testDirectory));
+
+        var registration = await authService.RegisterAsync("Ayşe", "Yılmaz", "ayse@test.com", "1234567");
+
+        Assert.False(registration.Success);
+        Assert.Null(emailSender.LastRecipient);
+    }
+
+    [Fact]
     public async Task RegisterAsync_ResendsANewCodeAndInvalidatesThePreviousCode()
     {
         var emailSender = new FakeEmailSender();
