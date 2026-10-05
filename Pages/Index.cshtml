@@ -9,147 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanal Tarihçim | Imperial Archive</title>
     <link rel="stylesheet" href="~/style.css">
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital@0;1&display=swap" rel="stylesheet">
-    
-    <style>
-        /* PARŞÖMEN VE GECE MODU EKLEMELERİ */
-        :root {
-            --gold: #d4af37;
-            --ink: #1a1a1a;
-            --paper: #f4e4bc;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--paper);
-            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
-            position: relative;
-            font-family: 'Lora', serif;
-            color: var(--ink);
-            line-height: 1.6;
-        }
-
-        /* TIPOGRAFI GÜNCELLEMELERİ */
-        h2, .logo {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: #4a3728;
-            border-bottom: 2px solid var(--gold);
-            display: inline-block;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        /* KİTAP KARTLARINDAKİ YAZILAR - GELİŞTİRİLDİ */
-        .book-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: #2c1e12;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .book-card p {
-            font-style: italic;
-            font-size: 1rem;
-            color: #443a30;
-            padding: 0 15px;
-            line-height: 1.4;
-        }
-
-        .book-card strong {
-            color: #8b0000; 
-            font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* GÜNÜN TARİH NOTU KARTI - BÜYÜTÜLDÜ */
-        .history-card {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 380px; 
-            min-height: 200px;
-            background: #fffdf5;
-            border: 4px double var(--gold); 
-            padding: 25px;
-            border-radius: 4px;
-            box-shadow: 15px 15px 35px rgba(0,0,0,0.3);
-            z-index: 10001;
-            transform: rotate(-1deg);
-            background-image: radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 0);
-            background-size: 15px 15px;
-        }
-
-        .history-card h4 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
-            margin: 0 0 15px 0;
-            color: #8b4513;
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 10px;
-            text-align: center;
-        }
-
-        #history-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #222;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        .history-card .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--gold);
-            transition: 0.3s;
-        }
-        .history-card .close-btn:hover { color: #8b0000; }
-
-        /* Gaz Lambası ve Diğer Yapılar */
-        .lantern-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 9999;
-            background: radial-gradient(circle 180px at var(--x, 50%) var(--y, 50%), transparent 0%, rgba(0, 0, 0, 0.88) 100%);
-            display: none;
-        }
-        .night-mode-active .lantern-overlay { display: block; }
-        .night-toggle {
-            position: fixed; bottom: 20px; left: 20px; z-index: 10000;
-            background: var(--gold); color: #000; border: none; padding: 15px;
-            border-radius: 50%; cursor: pointer; box-shadow: 0 0 15px rgba(0,0,0,0.3);
-        }
-        .dark-section { background: #1a1a1a; color: #d4af37; padding: 60px 20px; border-top: 1px solid #333; }
-        .contact-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
-        .contact-form input, .contact-form textarea { background: #2a2a2a; border: 1px solid #444; padding: 12px; color: #fff; border-radius: 5px; }
-        .contact-form button { background: var(--gold); color: #111; border: none; padding: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-    </style>
 </head>
 <body>
 
 <div class="lantern-overlay"></div>
 
 <div class="history-card" id="history-card">
-    <span class="close-btn" onclick="document.getElementById('history-card').style.display='none'">&times;</span>
+    <button class="close-btn" type="button" data-action="close-history" aria-label="Tarih notunu kapat">&times;</button>
     <h4><i class="fas fa-scroll"></i> Arşivden Bugün</h4>
     <p id="history-text">Kadim belgeler tozlarından arındırılıyor...</p>
 </div>
 
-<button class="night-toggle" onclick="toggleNightMode()" title="Gaz Lambasını Yak/Söndür">
+<button class="night-toggle" type="button" data-action="toggle-night-mode" title="Gaz Lambasını Yak/Söndür" aria-label="Gece modunu aç veya kapat">
     <i class="fas fa-lightbulb"></i>
 </button>
 
@@ -163,7 +37,7 @@
                 <li><a href="#iletisim">İletişim</a></li>
                 <li><a href="/Sepetim" class="btn-sepet"><i class="fas fa-shopping-bag"></i> SEPETİM (<span id="sepet-sayac">0</span>)</a></li>
                 <li><a href="/Giris"><i class="fas fa-user"></i> Giriş Yap</a></li>
-                <li><a href="/UyeOl" style="background: var(--gold); color: #1a1a1a; padding: 5px 10px; border-radius: 5px; font-weight: bold;">Üye Ol</a></li>
+                <li><a href="/UyeOl" class="join-link">Üye Ol</a></li>
             </ul>
         </nav>
     </header>
@@ -207,14 +81,14 @@
         {
             <div class="book-card">
                 <div class="book-frame"><img src="@book.ImageUrl" alt="@book.Title"></div>
-                <h3 style="margin-top:20px;">@book.Title</h3>
+                <h3 class="book-title">@book.Title</h3>
                 <p><strong>Yazar: @book.Author</strong>@book.Description</p>
-                <div style="display: flex; gap: 10px; margin-top: 15px; justify-content: center;">
+                <div class="book-actions">
                     @if (!string.IsNullOrWhiteSpace(book.DetailUrl))
                     {
-                        <a href="@book.DetailUrl" class="capsule-btn" style="font-size: 0.8rem;">İncele</a>
+                        <a href="@book.DetailUrl" class="capsule-btn book-detail-link">İncele</a>
                     }
-                    <button data-title="@book.Title" data-image="@book.ImageUrl" onclick="sepeteEkle(this.dataset.title, this.dataset.image)" class="capsule-btn" style="background: var(--gold); border: none; cursor: pointer;"><i class="fas fa-plus"></i></button>
+                    <button type="button" data-action="add-to-cart" data-title="@book.Title" data-image="@book.ImageUrl" class="capsule-btn book-add-button" aria-label="@book.Title ürününü sepete ekle"><i class="fas fa-plus"></i></button>
                 </div>
             </div>
         }
@@ -222,18 +96,18 @@
 
     <div id="hakkimizda" class="dark-section">
         <div class="section-title"><h2>Hakkımızda</h2></div>
-        <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 50px;">
-            <p style="font-size: 1.2rem;">Sanal Tarihçim, insanlık hafızasını tozlu raflardan dijital evrene taşımak için kurulmuş bir akademi ve arşividir. Bizim için her eser, geleceği aydınlatan bir meşaledir.</p>
+        <div class="about-copy">
+            <p>Sanal Tarihçim, insanlık hafızasını tozlu raflardan dijital evrene taşımak için kurulmuş bir akademi ve arşividir. Bizim için her eser, geleceği aydınlatan bir meşaledir.</p>
         </div>
 
         <div id="iletisim" class="section-title"><h2>Arşivcilere Ulaşın</h2></div>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Mesajınız arşivlere mühürlendi!');">
+        <form class="contact-form" data-contact-form>
             <input type="text" placeholder="Adınız Soyadınız" required>
             <input type="email" placeholder="E-posta Adresiniz" required>
             <textarea rows="5" placeholder="Tarihçimize sormak istediğiniz nedir?" required></textarea>
             <button type="submit">Mührü Gönder</button>
         </form>
-        <div style="text-align: center; margin-top: 40px; font-size: 0.9rem;">
+        <div class="archive-contact-details">
             <p><i class="fas fa-envelope"></i> iletisim@sanaltarihcim.com</p>
             <p><i class="fas fa-map-marker-alt"></i> Imperial Archive Headquarters</p>
         </div>
@@ -244,54 +118,7 @@
     </footer>
 </div>
 
-<script>
-    const tarihOlaylari = [
-        "1453: Fatih Sultan Mehmet, İstanbul'un fethi için büyük topları döktürmeye başladı. Çağ kapatan hazırlıklar!",
-        "1915: Çanakkale Deniz Zaferi; İtilaf Devletleri donanması boğazın serin sularına gömüldü.",
-        "1920: İstanbul, İtilaf Devletleri tarafından resmen işgal edildi; ancak milli irade asla teslim olmadı.",
-        "1923: Mustafa Kemal Atatürk, yeni Türkiye'nin ekonomik temelini İzmir İktisat Kongresi'nde attı.",
-        "1876: İlk Türk Anayasası olan Kanun-i Esasi ilan edilerek parlamenter sisteme ilk adım atıldı.",
-        "1071: Malazgirt Zaferi ile Anadolu'nun kapıları Türklere sonsuza dek açıldı."
-    ];
-
-    function gununOlayiniGetir() {
-        const d = new Date();
-        const index = (d.getDate() + d.getMonth()) % tarihOlaylari.length;
-        const textElem = document.getElementById('history-text');
-        if(textElem) textElem.innerText = tarihOlaylari[index];
-    }
-
-    const overlay = document.querySelector('.lantern-overlay');
-    document.addEventListener('mousemove', (e) => {
-        if(overlay) {
-            overlay.style.setProperty('--x', e.clientX + 'px');
-            overlay.style.setProperty('--y', e.clientY + 'px');
-        }
-    });
-
-    function toggleNightMode() {
-        document.body.classList.toggle('night-mode-active');
-        const icon = document.querySelector('.night-toggle i');
-        if(icon) icon.className = document.body.classList.contains('night-mode-active') ? 'fas fa-moon' : 'fas fa-lightbulb';
-    }
-
-    function sayacGuncelle() {
-        const sepet = JSON.parse(localStorage.getItem('tarihSepeti')) || [];
-        const sayac = document.getElementById('sepet-sayac');
-        if(sayac) sayac.innerText = sepet.length;
-    }
-
-    function sepeteEkle(isim, gorsel) {
-        let sepet = JSON.parse(localStorage.getItem('tarihSepeti')) || [];
-        if (sepet.some(item => item.ad === isim)) { alert("Bu hazine zaten sepetinde var babuş!"); return; }
-        sepet.push({ ad: isim, resim: gorsel });
-        localStorage.setItem('tarihSepeti', JSON.stringify(sepet));
-        sayacGuncelle();
-        alert(isim + " başarıyla sepete eklendi!");
-    }
-
-    window.onload = () => { sayacGuncelle(); gununOlayiniGetir(); };
-</script>
+<script src="~/js/index.js" asp-append-version="true"></script>
 
 </body>
 </html>

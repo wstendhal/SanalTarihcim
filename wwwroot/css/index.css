@@ -1,0 +1,221 @@
+:root {
+    --gold: #d4af37;
+    --ink: #1a1a1a;
+    --paper: #f4e4bc;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--paper);
+    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+    position: relative;
+    font-family: 'Lora', serif;
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+h2, .logo {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title h2 {
+    font-size: 2.2rem;
+    color: #4a3728;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.book-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #2c1e12;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.book-card .book-title {
+    margin-top: 20px;
+}
+
+.book-card p {
+    font-style: italic;
+    font-size: 1rem;
+    color: #443a30;
+    padding: 0 15px;
+    line-height: 1.4;
+}
+
+.book-card strong {
+    color: #8b0000;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.book-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.book-detail-link {
+    font-size: 0.8rem;
+}
+
+.book-add-button {
+    background: var(--gold);
+    border: none;
+    cursor: pointer;
+}
+
+.capsule-btn.book-add-button:hover {
+    background: var(--gold);
+}
+
+.join-link {
+    background: var(--gold);
+    color: #1a1a1a;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.history-card {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 380px;
+    min-height: 200px;
+    background: #fffdf5;
+    border: 4px double var(--gold);
+    padding: 25px;
+    border-radius: 4px;
+    box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.3);
+    z-index: 10001;
+    transform: rotate(-1deg);
+    background-image: radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 0);
+    background-size: 15px 15px;
+}
+
+.history-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    margin: 0 0 15px;
+    color: #8b4513;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#history-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #222;
+    font-weight: 500;
+    text-align: center;
+}
+
+.history-card .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--gold);
+    transition: 0.3s;
+}
+
+.history-card .close-btn:hover {
+    color: #8b0000;
+}
+
+.lantern-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background: radial-gradient(circle 180px at var(--x, 50%) var(--y, 50%), transparent 0%, rgba(0, 0, 0, 0.88) 100%);
+    display: none;
+}
+
+.night-mode-active .lantern-overlay {
+    display: block;
+}
+
+.night-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10000;
+    background: var(--gold);
+    color: #000;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-section {
+    background: #1a1a1a;
+    color: #d4af37;
+    padding: 60px 20px;
+    border-top: 1px solid #333;
+}
+
+.about-copy {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.about-copy p {
+    font-size: 1.2rem;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    padding: 12px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background: var(--gold);
+    color: #111;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.archive-contact-details {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}

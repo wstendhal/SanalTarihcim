@@ -12,10 +12,14 @@
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-    background-color: var(--bg-dark); /* Arka plan hala koyu ama wrapper her yeri kaplayacak */
+    background-color: var(--bg-dark);
     font-family: 'Montserrat', sans-serif;
     color: var(--ink);
     overflow-x: hidden;
@@ -24,18 +28,25 @@ body {
 /* --- FULL WIDTH WRAPPER (YANLARDAKİ BOŞLUĞU BİTİREN KISIM) --- */
 .main-wrapper {
     background: var(--parchment) url('https://www.transparenttextures.com/patterns/parchment.png');
-    width: 100vw; /* Sayfayı tam genişlik yapar */
+    width: 100vw;
     min-height: 100vh;
-    padding: 40px 100px; /* İçeriden geniş boşluk bırakır ama zemin tam ekrandır */
-    box-shadow: inset 0 0 200px rgba(0,0,0,0.15);
+    padding: 40px 100px;
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.15);
     position: relative;
     border-top: 5px solid var(--gold);
     animation: pageFadeIn 1.5s ease;
 }
 
 @keyframes pageFadeIn {
-    0% { opacity: 0; filter: blur(5px); }
-    100% { opacity: 1; filter: blur(0); }
+    0% {
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 /* --- HEADER (GENİŞLETİLMİŞ) --- */
@@ -43,10 +54,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1600px; /* İçerik çok dağılmasın diye limitli ama geniş */
+    max-width: 1600px;
     margin: 0 auto 60px;
     padding-bottom: 20px;
-    border-bottom: 2px solid rgba(0,0,0,0.05);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
 }
 
 .logo {
@@ -56,18 +67,30 @@ header {
     color: var(--ink);
     text-decoration: none;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 0px rgba(255,255,255,0.4);
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.4);
 }
 
-nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
-nav a { text-decoration: none; color: var(--ink); font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
 
 .btn-sepet {
     background: #6d4c41;
     color: white !important;
     padding: 12px 25px;
     border-radius: 50px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* --- DEV BÖLÜM BAŞLIKLARI --- */
@@ -98,7 +121,7 @@ nav a { text-decoration: none; color: var(--ink); font-weight: 700; text-transfo
 }
 
 .capsule-btn {
-    background: rgba(255,255,255,0.4);
+    background: rgba(255, 255, 255, 0.4);
     padding: 25px;
     border-radius: 100px;
     display: flex;
@@ -110,7 +133,7 @@ nav a { text-decoration: none; color: var(--ink); font-weight: 700; text-transfo
     font-size: 1.1rem;
     border: 1px solid rgba(139, 69, 19, 0.1);
     transition: var(--transition);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.03);
 }
 
 .capsule-btn i {
@@ -129,10 +152,12 @@ nav a { text-decoration: none; color: var(--ink); font-weight: 700; text-transfo
     background: var(--ink);
     color: #fff;
     transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.capsule-btn:hover i { background: var(--gold); }
+.capsule-btn:hover i {
+    background: var(--gold);
+}
 
 /* --- KATEGORİLER (İKONLU) --- */
 .category-strip {
@@ -141,7 +166,7 @@ nav a { text-decoration: none; color: var(--ink); font-weight: 700; text-transfo
     justify-content: center;
     gap: 40px;
     padding: 40px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     max-width: 1600px;
     margin: 0 auto;
@@ -158,8 +183,15 @@ nav a { text-decoration: none; color: var(--ink); font-weight: 700; text-transfo
     transition: var(--transition);
 }
 
-.cat-item i { font-size: 2.5rem; color: #5d4037; }
-.cat-item:hover { transform: translateY(-10px); color: var(--gold); }
+.cat-item i {
+    font-size: 2.5rem;
+    color: #5d4037;
+}
+
+.cat-item:hover {
+    transform: translateY(-10px);
+    color: var(--gold);
+}
 
 /* --- KİTAP RAFI (BÜYÜK BOY) --- */
 .shelf {
@@ -180,12 +212,13 @@ nav a { text-decoration: none; color: var(--ink); font-weight: 700; text-transfo
     transition: var(--transition);
 }
 
-/* Arkadaki o karakteristik blok */
 .book-frame::after {
     content: "";
     position: absolute;
-    bottom: -20px; left: 5%;
-    width: 90%; height: 60%;
+    bottom: -20px;
+    left: 5%;
+    width: 90%;
+    height: 60%;
     background: #8d6e63;
     z-index: -1;
     border-radius: 20px;
@@ -197,7 +230,7 @@ nav a { text-decoration: none; color: var(--ink); font-weight: 700; text-transfo
     height: 320px;
     object-fit: cover;
     border-radius: 5px 15px 15px 5px;
-    box-shadow: 15px 25px 50px rgba(0,0,0,0.4);
+    box-shadow: 15px 25px 50px rgba(0, 0, 0, 0.4);
 }
 
 .book-card:hover .book-frame {
@@ -217,36 +250,38 @@ footer {
    ============================================================ */
 
 .map-banner {
-    width: 100vw;               /* Tam ekran genişlik */
-    height: 60vh;              /* Ekran yüksekliğinin %60'ı kadar heybetli */
-    position: relative;        /* Yazıları üzerine koymak için */
-    overflow: hidden;         /* Taşan kısımları keser, sünmeyi engeller */
-    border-bottom: 5px solid var(--gold); /* Altına bir altın varak mühür */
-    margin-top: -40px;         /* Wrapper'ın padding'ini sıfırlar (DİKKAT: .main-wrapper padding'ine göre ayarla) */
-    margin-left: -100px;        /* Wrapper'ın yan padding'ini sıfırlar (DİKKAT: .main-wrapper padding'ine göre ayarla) */
+    width: 100vw;
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid var(--gold);
+    margin-top: -40px;
+    margin-left: -100px;
     animation: bannerFadeIn 2s ease;
 }
 
 .map-banner img {
     width: 100%;
     height: 100%;
-    object-fit: cover;         /* İŞTE SİHİR BU: Resmi bozmadan alanı tam doldurur. */
-    object-position: center 30%; /* Resmi hafif yukarı kaydırarak önemli yerleri odaklar */
-    filter: brightness(0.6) sepia(0.3); /* Haritayı biraz karartıp sitenin antik havasına uydurur */
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.6) sepia(0.3);
 }
 
 /* Haritanın üzerindeki yazılar ve karartma efekti */
 .map-overlay {
     position: absolute;
-    bottom: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(to top, rgba(26,21,15,0.9), transparent); /* Alttan üste doğru kararan gradyan */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(26, 21, 15, 0.9), transparent);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Yazıları en alta yaslar */
+    justify-content: flex-end;
     padding: 100px;
     color: var(--parchment);
-    pointer-events: none;      /* Yazıların altındaki haritaya tıklanabilsin */
+    pointer-events: none;
 }
 
 .map-title {
@@ -255,7 +290,7 @@ footer {
     font-weight: 900;
     margin-bottom: 10px;
     letter-spacing: 5px;
-    text-shadow: 3px 3px 0px rgba(0,0,0,0.5);
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
 .map-subtitle {
@@ -266,6 +301,13 @@ footer {
 }
 
 @keyframes bannerFadeIn {
-    0% { opacity: 0; transform: scale(1.1); }
-    100% { opacity: 1; transform: scale(1); }
+    0% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

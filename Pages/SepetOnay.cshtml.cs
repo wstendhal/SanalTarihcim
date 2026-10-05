@@ -9,7 +9,7 @@ namespace SanalTarihcim.Pages
         {
             var isLoggedIn = HttpContext.Session.GetString("IsLoggedIn");
 
-            if (string.IsNullOrWhiteSpace(isLoggedIn) || isLoggedIn != "true")
+            if (isLoggedIn != "true")
             {
                 return Redirect("/Giris?returnUrl=/SepetOnay");
             }

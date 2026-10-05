@@ -81,13 +81,61 @@ public sealed class BookCatalogService
 
     private static List<Book> CreateInitialBooks() =>
     [
-        new(Guid.NewGuid(), "Osmanlı Tarihine Kuşbakışı", "Halil İnalcık", "İmparatorluğun yükseliş ve çöküş dinamiklerini anlatan bir başyapıt.", "/osmkitap.jfif", "/Osmanli"),
-        new(Guid.NewGuid(), "Roma İmparatorluğu Tarihi", "Edward Gibbon", "Antik dünyanın en büyük gücünün yükselişini ve mirasını keşfedin.", "/romakitap.jfif", "/Roma"),
-        new(Guid.NewGuid(), "Savaş Ve Barış", "Lev Tolstoy", "Napolyon savaşlarının gölgesinde Rus toplumunun ruhunu yansıtan tarih panoraması.", "/savaskitap.jfif", "/SavasTarihi"),
-        new(Guid.NewGuid(), "Sapiens", "Yuval Noah Harari", "İnsanoğlunun avcı-toplayıcılıktan günümüze uzanan yolculuğu.", "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1000", "/ModernTarih"),
-        new(Guid.NewGuid(), "Tüfek, Mikrop ve Çelik", "Jared Diamond", "Coğrafyanın ve ekolojinin toplumların kaderi üzerindeki etkisi.", "/tufek.jfif", "/DunyaTarihi"),
-        new(Guid.NewGuid(), "Mukaddime", "İbn-i Haldun", "Devletlerin doğuşunu, yükselişini ve çöküşünü anlatan tarih felsefesi eseri.", "/mukaddime.jfif", "/IslamTarihi"),
-        new(Guid.NewGuid(), "Sefiller", "Victor Hugo", "Fransız Devrimi yıllarında adalet ve vicdan arayışının hikayesi.", "/sefiller.jfif", "/AvrupaTarihi"),
-        new(Guid.NewGuid(), "Nutuk", "Mustafa Kemal Atatürk", "Milli Mücadele'nin safhalarını liderinin anlatımıyla aktaran arşiv belgesi.", "/nutuk.jfif", "/TurkTarihciler")
+        new(
+            Guid.NewGuid(),
+            "Osmanlı Tarihine Kuşbakışı",
+            "Halil İnalcık",
+            "İmparatorluğun yükseliş ve çöküş dinamiklerini anlatan bir başyapıt.",
+            "/osmkitap.jfif",
+            "/Osmanli"),
+        new(
+            Guid.NewGuid(),
+            "Roma İmparatorluğu Tarihi",
+            "Edward Gibbon",
+            "Antik dünyanın en büyük gücünün yükselişini ve mirasını keşfedin.",
+            "/romakitap.jfif",
+            "/Roma"),
+        new(
+            Guid.NewGuid(),
+            "Savaş Ve Barış",
+            "Lev Tolstoy",
+            "Napolyon savaşlarının gölgesinde Rus toplumunun ruhunu yansıtan tarih panoraması.",
+            "/savaskitap.jfif",
+            "/SavasTarihi"),
+        new(
+            Guid.NewGuid(),
+            "Sapiens",
+            "Yuval Noah Harari",
+            "İnsanoğlunun avcı-toplayıcılıktan günümüze uzanan yolculuğu.",
+            "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1000",
+            "/ModernTarih"),
+        new(
+            Guid.NewGuid(),
+            "Tüfek, Mikrop ve Çelik",
+            "Jared Diamond",
+            "Coğrafyanın ve ekolojinin toplumların kaderi üzerindeki etkisi.",
+            "/tufek.jfif",
+            "/DunyaTarihi"),
+        new(
+            Guid.NewGuid(),
+            "Mukaddime",
+            "İbn-i Haldun",
+            "Devletlerin doğuşunu, yükselişini ve çöküşünü anlatan tarih felsefesi eseri.",
+            "/mukaddime.jfif",
+            "/IslamTarihi"),
+        new(
+            Guid.NewGuid(),
+            "Sefiller",
+            "Victor Hugo",
+            "Fransız Devrimi yıllarında adalet ve vicdan arayışının hikayesi.",
+            "/sefiller.jfif",
+            "/AvrupaTarihi"),
+        new(
+            Guid.NewGuid(),
+            "Nutuk",
+            "Mustafa Kemal Atatürk",
+            "Milli Mücadele'nin safhalarını liderinin anlatımıyla aktaran arşiv belgesi.",
+            "/nutuk.jfif",
+            "/TurkTarihciler")
     ];
 }

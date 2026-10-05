@@ -130,10 +130,8 @@ public sealed class AuthService
         return isValid;
     }
 
-    public bool TryValidateLogin(string email, string code)
-    {
-        return VerifyRegistrationCode(email, code);
-    }
+    public bool TryValidateLogin(string email, string code) =>
+        VerifyRegistrationCode(email, code);
 
     public string? GetPendingLoginCode(string email)
     {
