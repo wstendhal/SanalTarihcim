@@ -18,37 +18,28 @@ public sealed class SmtpEmailSender : IEmailSender
         var port = _configuration.GetValue<int>("Smtp:Port");
         var from = _configuration["Smtp:From"];
         var enableSsl = _configuration.GetValue<bool>("Smtp:EnableSsl", true);
-        var useConsoleFallback = _configuration.GetValue<bool>("Smtp:UseConsoleFallback", false);
+        var username = _configuration["Smtp:Username"];
+        var password = _configuration["Smtp:Password"];
 
         if (string.IsNullOrWhiteSpace(host) ||
             string.IsNullOrWhiteSpace(from) ||
             port <= 0)
         {
-            if (useConsoleFallback)
-            {
-                Console.WriteLine("[EMAIL DEBUG]");
-                Console.WriteLine($"To: {toAddress}");
-                Console.WriteLine($"Subject: {subject}");
-                Console.WriteLine(body);
-                return;
-            }
-
             throw new InvalidOperationException("SMTP ayarları eksik. Host, From ve Port değerleri doldurulmalı.");
+        }
+
+        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+        {
+            throw new InvalidOperationException(
+                "SMTP kimlik bilgileri eksik. Username ve Password değerlerini güvenli ayarlara ekleyin.");
         }
 
         using var client = new SmtpClient(host, port)
         {
             EnableSsl = enableSsl,
-            DeliveryMethod = SmtpDeliveryMethod.Network
+            DeliveryMethod = SmtpDeliveryMethod.Network,
+            Credentials = new NetworkCredential(username, password)
         };
-
-        var username = _configuration["Smtp:Username"];
-        var password = _configuration["Smtp:Password"];
-
-        if (!string.IsNullOrWhiteSpace(username) && !string.IsNullOrWhiteSpace(password))
-        {
-            client.Credentials = new NetworkCredential(username, password);
-        }
 
         using var message = new MailMessage
         {

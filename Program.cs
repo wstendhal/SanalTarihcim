@@ -4,6 +4,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IEmailSender, SmtpEmailSender>();
+builder.Services.AddSingleton(serviceProvider =>
+    new AuthUserStore(serviceProvider.GetRequiredService<IWebHostEnvironment>().ContentRootPath));
+builder.Services.AddSingleton(serviceProvider =>
+    new LoginHistoryService(serviceProvider.GetRequiredService<IWebHostEnvironment>().ContentRootPath));
 builder.Services.AddSingleton<AuthService>();
 builder.Services.AddSingleton<BookCatalogService>();
 builder.Services.AddSession(options =>

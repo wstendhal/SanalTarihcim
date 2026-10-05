@@ -4,10 +4,11 @@ using SanalTarihcim.Services;
 
 namespace SanalTarihcim.Pages.Admin
 {
-    public class IndexModel(BookCatalogService bookCatalog) : PageModel
+    public class IndexModel(BookCatalogService bookCatalog, LoginHistoryService loginHistory) : PageModel
     {
         public string AdminEmail { get; private set; } = "Admin";
         public int BookCount { get; private set; }
+        public IReadOnlyList<LoginHistoryEntry> LoginHistory { get; private set; } = [];
 
         public IActionResult OnGet()
         {
@@ -19,6 +20,7 @@ namespace SanalTarihcim.Pages.Admin
 
             AdminEmail = HttpContext.Session.GetString("AdminEmail") ?? "admin@sanal-tarihcim.com";
             BookCount = bookCatalog.GetAll().Count;
+            LoginHistory = loginHistory.GetAll();
             return Page();
         }
 

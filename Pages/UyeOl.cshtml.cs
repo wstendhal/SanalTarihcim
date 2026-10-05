@@ -47,10 +47,13 @@ namespace SanalTarihcim.Pages
                 return Page();
             }
 
-            var redirectUrl = string.IsNullOrWhiteSpace(ReturnUrl) ? "/SepetOnay" : ReturnUrl;
-            var code = result.VerificationCode ?? string.Empty;
-            var message = Uri.EscapeDataString(result.Message);
-            return Redirect($"/Dogrulama?email={Uri.EscapeDataString(Eposta)}&returnUrl={Uri.EscapeDataString(redirectUrl)}&message={message}&code={Uri.EscapeDataString(code)}");
+            var redirectUrl = Url.IsLocalUrl(ReturnUrl) ? ReturnUrl : "/SepetOnay";
+            return RedirectToPage("/Dogrulama", new
+            {
+                EmailQuery = Eposta,
+                ReturnUrl = redirectUrl,
+                Message = result.Message
+            });
         }
     }
 }

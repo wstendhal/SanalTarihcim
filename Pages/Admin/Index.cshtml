@@ -10,36 +10,228 @@
     <title>Sanal Tarihçim | Admin Panel</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            background: #0f0f0f;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .admin-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .admin-sidebar {
+            width: 260px;
+            padding: 30px 20px;
+            background: #111;
+            border-right: 1px solid #d4af37;
+        }
+
+        .admin-brand {
+            margin-bottom: 30px;
+            color: #d4af37;
+            font: 1.6rem 'Cinzel Decorative', serif;
+        }
+
+        .admin-nav {
+            display: grid;
+            gap: 12px;
+        }
+
+        .admin-nav a,
+        .admin-logout {
+            padding: 10px 12px;
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .admin-nav .active {
+            color: #fff;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+        }
+
+        .admin-logout {
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .admin-content {
+            flex: 1;
+            min-width: 0;
+            padding: 40px;
+        }
+
+        .admin-heading,
+        .admin-card-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .admin-heading {
+            margin-bottom: 30px;
+        }
+
+        .admin-heading h1 {
+            margin: 0;
+            color: #d4af37;
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        .admin-heading p,
+        .login-history-empty {
+            color: #aaa;
+        }
+
+        .admin-link,
+        .admin-action {
+            display: inline-block;
+            padding: 10px 16px;
+            background: #d4af37;
+            color: #111;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .admin-card {
+            margin-bottom: 24px;
+            padding: 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+        }
+
+        .admin-card h2 {
+            margin: 0;
+            color: #d4af37;
+            font-size: 1.2rem;
+        }
+
+        .admin-card p {
+            color: #ddd;
+        }
+
+        .login-history {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .login-history th,
+        .login-history td {
+            padding: 12px;
+            border-bottom: 1px solid #333;
+            text-align: left;
+        }
+
+        .login-history th {
+            color: #d4af37;
+        }
+
+        @@media (max-width: 760px) {
+            .admin-layout {
+                display: block;
+            }
+
+            .admin-sidebar {
+                width: auto;
+            }
+
+            .admin-content {
+                padding: 24px 16px;
+            }
+
+            .admin-heading,
+            .admin-card-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .login-history {
+                font-size: 0.85rem;
+            }
+
+            .login-history th,
+            .login-history td {
+                padding: 8px 4px;
+                overflow-wrap: anywhere;
+            }
+        }
+    </style>
 </head>
-<body style="margin: 0; background: #0f0f0f; color: white; font-family: Arial, sans-serif;">
-    <div style="display: flex; min-height: 100vh;">
-        <aside style="width: 260px; background: #111; border-right: 1px solid #d4af37; padding: 30px 20px;">
-            <div style="font-size: 1.6rem; font-family: 'Cinzel Decorative'; color: #d4af37; margin-bottom: 30px;">SANAL TARİHÇİM</div>
-            <nav style="display: grid; gap: 12px;">
-                <a href="/Admin" style="color: white; text-decoration: none; padding: 10px 12px; background: rgba(212,175,55,0.1); border-radius: 8px;">Genel Bakış</a>
-                <a href="/Admin/Books" style="color: #ddd; text-decoration: none; padding: 10px 12px;">Kitaplar</a>
-                <a href="/Index" style="color: #ddd; text-decoration: none; padding: 10px 12px;">Mağazayı Gör</a>
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="admin-brand">SANAL TARİHÇİM</div>
+            <nav class="admin-nav">
+                <a href="/Admin" class="active">Genel Bakış</a>
+                <a href="/Admin/Books">Kitaplar</a>
+                <a href="/Index">Mağazayı Gör</a>
                 <form method="post" asp-page-handler="Logout">
                     @Html.AntiForgeryToken()
-                    <button type="submit" style="width: 100%; text-align: left; color: #ddd; text-decoration: none; padding: 10px 12px; background: transparent; border: 0; cursor: pointer;">Çıkış</button>
+                    <button type="submit" class="admin-logout">Çıkış</button>
                 </form>
             </nav>
         </aside>
 
-        <main style="flex: 1; padding: 40px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <main class="admin-content">
+            <div class="admin-heading">
                 <div>
-                    <h1 style="margin: 0; color: #d4af37; font-family: 'Cinzel Decorative';">Admin Paneli</h1>
-                    <p style="margin: 8px 0 0; color: #aaa;">Hoş geldiniz, @Model.AdminEmail</p>
+                    <h1>Admin Paneli</h1>
+                    <p>Hoş geldiniz, @Model.AdminEmail</p>
                 </div>
-                <a href="/Index" style="background: #d4af37; color: #111; text-decoration: none; padding: 10px 16px; border-radius: 8px; font-weight: bold;">Siteye Dön</a>
+                <a href="/Index" class="admin-link">Siteye Dön</a>
             </div>
 
-            <div style="background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 20px;">
-                <h3 style="margin-top: 0; color: #d4af37;">Kitap Kataloğu</h3>
-                <p style="color: #ddd;">Mağazada şu anda <strong>@Model.BookCount</strong> kitap bulunuyor.</p>
-                <a href="/Admin/Books" style="display: inline-block; background: #d4af37; color: #111; text-decoration: none; padding: 10px 16px; border-radius: 6px; font-weight: bold;">Kitapları Yönet</a>
-            </div>
+            <section class="admin-card">
+                <h2>Kitap Kataloğu</h2>
+                <p>Mağazada şu anda <strong>@Model.BookCount</strong> kitap bulunuyor.</p>
+                <a href="/Admin/Books" class="admin-action">Kitapları Yönet</a>
+            </section>
+
+            <section class="admin-card">
+                <div class="admin-card-heading">
+                    <h2>Son Kullanıcı Girişleri</h2>
+                    <span>@Model.LoginHistory.Count kayıt</span>
+                </div>
+
+                @if (Model.LoginHistory.Count == 0)
+                {
+                    <p class="login-history-empty">Henüz başarılı kullanıcı girişi kaydedilmedi.</p>
+                }
+                else
+                {
+                    <div style="overflow-x: auto;">
+                        <table class="login-history">
+                            <thead>
+                                <tr>
+                                    <th>Ad Soyad</th>
+                                    <th>E-posta</th>
+                                    <th>Giriş Zamanı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var entry in Model.LoginHistory)
+                                {
+                                    <tr>
+                                        <td>@entry.FirstName @entry.LastName</td>
+                                        <td>@entry.Email</td>
+                                        <td>@entry.LoggedInAtUtc.ToLocalTime().ToString("g")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </section>
         </main>
     </div>
 </body>

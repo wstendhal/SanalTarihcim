@@ -61,8 +61,9 @@ namespace SanalTarihcim.Pages
             HttpContext.Session.SetString("IsLoggedIn", "true");
             HttpContext.Session.SetString("UserEmail", Email);
 
-            var redirectUrl = string.IsNullOrWhiteSpace(ReturnUrl) ? "/Index" : ReturnUrl;
-            return Redirect(redirectUrl);
+            return Url.IsLocalUrl(ReturnUrl)
+                ? LocalRedirect(ReturnUrl)
+                : RedirectToPage("/Index");
         }
     }
 }

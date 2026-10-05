@@ -11,6 +11,10 @@ obj/
 cookies.txt
 temp.html
 *.log
+/App_Data/login-history.json
+/App_Data/login-history.json.tmp
+/App_Data/auth-users.json
+/App_Data/auth-users.json.tmp
 
 # Test output
 TestResults/

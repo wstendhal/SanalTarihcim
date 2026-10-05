@@ -13,6 +13,9 @@ namespace SanalTarihcim.Pages
             _authService = authService;
         }
 
+        [BindProperty(SupportsGet = true)]
+        public string? EmailQuery { get; set; }
+
         [BindProperty]
         public string Email { get; set; } = string.Empty;
 
@@ -25,22 +28,11 @@ namespace SanalTarihcim.Pages
         [BindProperty(SupportsGet = true)]
         public string? Message { get; set; }
 
-        [BindProperty(SupportsGet = true)]
-        public string? Code { get; set; }
-
         public string? InfoMessage { get; private set; }
 
         public void OnGet()
         {
-            if (!string.IsNullOrWhiteSpace(Email))
-            {
-                Email = Email.Trim();
-            }
-
-            if (!string.IsNullOrWhiteSpace(Code))
-            {
-                Kod = Code;
-            }
+            Email = (EmailQuery ?? string.Empty).Trim();
 
             if (!string.IsNullOrWhiteSpace(Message))
             {
@@ -48,7 +40,7 @@ namespace SanalTarihcim.Pages
             }
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Kod))
             {
@@ -56,14 +48,15 @@ namespace SanalTarihcim.Pages
                 return Page();
             }
 
-            var isValid = _authService.VerifyRegistrationCode(Email, Kod);
+            var isValid = await _authService.VerifyRegistrationCodeAsync(Email, Kod);
             if (!isValid)
             {
                 InfoMessage = "Doğrulama kodu geçersiz veya süresi dolmuş.";
                 return Page();
             }
 
-            return Redirect(string.IsNullOrWhiteSpace(ReturnUrl) ? "/Giris?email=" + Uri.EscapeDataString(Email) : ReturnUrl);
+            var redirectUrl = Url.IsLocalUrl(ReturnUrl) ? ReturnUrl : "/SepetOnay";
+            return RedirectToPage("/Giris", new { EmailQuery = Email, ReturnUrl = redirectUrl });
         }
     }
 }

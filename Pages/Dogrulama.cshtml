@@ -17,6 +17,7 @@
         <div style="text-align: center; margin-bottom: 30px;">
             <h2 style="font-family: 'Cinzel Decorative'; font-size: 2rem; margin-bottom: 10px;">DOĞRULAMA</h2>
             <p style="font-family: 'Playfair Display';">E-posta adresinize gelen 6 haneli kodu girin.</p>
+            <p style="font-size: 0.9rem; color: #666;">Kod gönderilen adres: <strong>@Model.Email</strong></p>
         </div>
 
         @if (!string.IsNullOrWhiteSpace(Model.InfoMessage))
@@ -28,27 +29,17 @@
 
         <form method="post">
             @Html.AntiForgeryToken()
+            <input type="hidden" name="Email" value="@Model.Email" />
             <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl" />
-
-            <div style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: bold;"><i class="fas fa-envelope"></i> E-Posta</label>
-                <input type="email" name="Email" value="@Model.Email" placeholder="ornek@arsiv.com" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
-            </div>
 
             <div style="margin-bottom: 25px;">
                 <label style="display: block; margin-bottom: 8px; font-weight: bold;"><i class="fas fa-key"></i> Doğrulama Kodu</label>
-                <input type="text" name="Kod" value="@Model.Kod" placeholder="6 haneli kod" maxlength="6" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+                <input type="text" name="Kod" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" placeholder="6 haneli kod" maxlength="6" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
             </div>
 
             <button type="submit" class="capsule-btn" style="width: 100%; background: var(--ink); color: white; border: none; padding: 15px; font-weight: bold; cursor: pointer;">KODU DOĞRULA</button>
         </form>
 
-        @if (!string.IsNullOrWhiteSpace(Model.Code))
-        {
-            <div style="margin-top: 20px; padding: 12px 15px; background: #f8f8f8; border: 1px solid #ddd; border-radius: 8px; color: #111; font-weight: bold; text-align: center;">
-                Kod: <span style="letter-spacing: 3px;">@Model.Code</span>
-            </div>
-        }
     </div>
 
 </body>
